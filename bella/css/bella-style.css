@@ -88,7 +88,8 @@ body {
   color: var(--color-black);
   background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
-  moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: grayscale;
+  font-feature-settings: grayscale;
 }
 
 img, picture, video, canvas, svg {

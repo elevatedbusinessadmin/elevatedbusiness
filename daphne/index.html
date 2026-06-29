@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevated Business</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300&family=Inter:wght@300&family=Kalnia:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/daphne-style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="site-header">
+
+        <div class="logo">
+            Elevated Business
+        </div>
+
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">WORK WITH ME</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <!-- Left Image -->
+
+        <div class="hero-image-wrapper">
+
+            <div class="hero-image"></div>
+
+        </div>
+
+
+        <!-- Divider -->
+
+        <div class="divider"></div>
+
+
+        <!-- Right Content -->
+
+        <div class="hero-content">
+
+            <h1>
+                Welcome to your page
+            </h1>
+
+            <h2>
+                THIS IS WHERE YOUR HOOK STATEMENT GOES, A SHORT SENTENCE SUMMARIZING YOUR BRAND.
+            </h2>
+
+            <p>
+                Now, this is where you expand on the hook statement. 1-2 sentences giving a high level understanding about your business, while incentivizing readers to keep scrolling.
+            </p>
+
+            <a href="#" class="hero-btn">
+
+                Learn More
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+<script>
+
+const image = document.querySelector(".hero-image");
+
+window.addEventListener("scroll",()=>{
+
+let offset = window.pageYOffset;
+
+image.style.transform = `translateY(${offset * .08}px)`;
+
+});
+
+</script>
+
+</body>
+</html>

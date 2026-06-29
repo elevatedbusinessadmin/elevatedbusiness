@@ -265,62 +265,64 @@
           <span class="eyebrow eyebrow--cobalt">[SECTION LABEL — E.G. "THE SHOP" OR "FAVOURITE TOOLS"]</span>
           <h2 class="shop__heading">[SECTION HEADLINE — E.G. "THINGS I ACTUALLY USE AND LOVE"]</h2>
         </div>
-        <div class="shop__nav">
-          <button class="shop__arrow" aria-label="Previous">
-            <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
-          </button>
-          <button class="shop__arrow" aria-label="Next">
-            <svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
-          </button>
-        </div>
       </div>
 
-      <div class="shop__grid">
+      <div class="shop__carousel-wrapper">
+        <button class="shop__arrow" aria-label="Previous">
+          <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+        </button>
+        <div class="shop__grid">
 
-        <div class="product-card">
-          <div class="placeholder-img placeholder-img--sand product-card__img">
-            <span style="color:var(--navy);">[PRODUCT SHOT — FLATLAY OR LIFESTYLE IMAGE OF THE PRODUCT]</span>
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__category">[PRODUCT CATEGORY — E.G. "DIGITAL TOOL" OR "BOOK"]</span>
-            <h3 class="product-card__name">[PRODUCT OR RESOURCE NAME]</h3>
-            <p class="product-card__desc">[1–2 sentences. Why do you recommend this? What does it do for you or your clients?]</p>
-            <div class="product-card__footer">
-              <span class="product-card__price">[PRICE OR "FREE"]</span>
-              <a href="#" class="product-card__link">Shop Now</a>
+          <div class="product-card">
+            <div class="placeholder-img placeholder-img--sand product-card__img">
+              <span style="color:var(--navy);">[PRODUCT SHOT — FLATLAY OR LIFESTYLE IMAGE OF THE PRODUCT]</span>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__category">[PRODUCT CATEGORY — E.G. "DIGITAL TOOL" OR "BOOK"]</span>
+              <h3 class="product-card__name">[PRODUCT OR RESOURCE NAME]</h3>
+              <p class="product-card__desc">[1–2 sentences. Why do you recommend this? What does it do for you or your clients?]</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">[PRICE OR "FREE"]</span>
+                <a href="#" class="product-card__link">Shop Now</a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="product-card">
-          <div class="placeholder-img placeholder-img--sand product-card__img">
-            <span style="color:var(--navy);">[PRODUCT SHOT — FLATLAY OR LIFESTYLE IMAGE OF THE PRODUCT]</span>
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__category">[PRODUCT CATEGORY]</span>
-            <h3 class="product-card__name">[PRODUCT OR RESOURCE NAME]</h3>
-            <p class="product-card__desc">[1–2 sentences. Why do you recommend this?]</p>
-            <div class="product-card__footer">
-              <span class="product-card__price">[PRICE OR "FREE"]</span>
-              <a href="#" class="product-card__link">Shop Now</a>
+          <div class="product-card">
+            <div class="placeholder-img placeholder-img--sand product-card__img">
+              <span style="color:var(--navy);">[PRODUCT SHOT — FLATLAY OR LIFESTYLE IMAGE OF THE PRODUCT]</span>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__category">[PRODUCT CATEGORY]</span>
+              <h3 class="product-card__name">[PRODUCT OR RESOURCE NAME]</h3>
+              <p class="product-card__desc">[1–2 sentences. Why do you recommend this?]</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">[PRICE OR "FREE"]</span>
+                <a href="#" class="product-card__link">Shop Now</a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="product-card">
-          <div class="placeholder-img placeholder-img--sand product-card__img">
-            <span style="color:var(--navy);">[PRODUCT SHOT — FLATLAY OR LIFESTYLE IMAGE OF THE PRODUCT]</span>
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__category">[PRODUCT CATEGORY]</span>
-            <h3 class="product-card__name">[PRODUCT OR RESOURCE NAME]</h3>
-            <p class="product-card__desc">[1–2 sentences. Why do you recommend this?]</p>
-            <div class="product-card__footer">
-              <span class="product-card__price">[PRICE OR "FREE"]</span>
-              <a href="#" class="product-card__link">Shop Now</a>
+          <div class="product-card">
+            <div class="placeholder-img placeholder-img--sand product-card__img">
+              <span style="color:var(--navy);">[PRODUCT SHOT — FLATLAY OR LIFESTYLE IMAGE OF THE PRODUCT]</span>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__category">[PRODUCT CATEGORY]</span>
+              <h3 class="product-card__name">[PRODUCT OR RESOURCE NAME]</h3>
+              <p class="product-card__desc">[1–2 sentences. Why do you recommend this?]</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">[PRICE OR "FREE"]</span>
+                <a href="#" class="product-card__link">Shop Now</a>
+              </div>
             </div>
           </div>
+
         </div>
+
+        <button class="shop__arrow" aria-label="Next">
+          <svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+        </button>
 
       </div>
     </div>
@@ -424,28 +426,40 @@
         <p class="offering-suite__body">[1–2 sentences. A line about the range of ways someone can work with or buy from you.]</p>
       </div>
 
-      <div class="offering-grid">
+      <div class="offering-carousel-wrapper">
 
-        <div class="offering-card">
-          <div class="offering-card__badge"><span>01</span></div>
-          <h3 class="offering-card__title">[OFFERING NAME — 2–4 WORDS, E.G. "1:1 COACHING"]</h3>
-          <p class="offering-card__desc">[2–3 sentences. What is included? Who is it best suited for? What outcome does it promise?]</p>
-          <a href="#" class="offering-card__link">Find Out More</a>
+        <button class="offering-arrow offering-arrow--prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+        </button>
+
+        <div class="offering-grid">
+
+          <div class="offering-card">
+            <div class="offering-card__badge"><span>01</span></div>
+            <h3 class="offering-card__title">[OFFERING NAME — 2–4 WORDS, E.G. "1:1 COACHING"]</h3>
+            <p class="offering-card__desc">[2–3 sentences. What is included? Who is it best suited for? What outcome does it promise?]</p>
+            <a href="#" class="offering-card__link">Learn More</a>
+          </div>
+
+          <div class="offering-card">
+            <div class="offering-card__badge"><span>02</span></div>
+            <h3 class="offering-card__title">[OFFERING NAME — E.G. "GROUP PROGRAMME"]</h3>
+            <p class="offering-card__desc">[2–3 sentences. What does this include? What is the format — live sessions, community, curriculum?]</p>
+            <a href="#" class="offering-card__link">Learn More</a>
+          </div>
+
+          <div class="offering-card">
+            <div class="offering-card__badge"><span>03</span></div>
+            <h3 class="offering-card__title">[OFFERING NAME — E.G. "SELF-STUDY COURSE"]</h3>
+            <p class="offering-card__desc">[2–3 sentences. Is this evergreen or cohort-based? What will someone be able to do when they finish?]</p>
+            <a href="#" class="offering-card__link">Learn More</a>
+          </div>
+
         </div>
 
-        <div class="offering-card">
-          <div class="offering-card__badge"><span>02</span></div>
-          <h3 class="offering-card__title">[OFFERING NAME — E.G. "GROUP PROGRAMME"]</h3>
-          <p class="offering-card__desc">[2–3 sentences. What does this include? What is the format — live sessions, community, curriculum?]</p>
-          <a href="#" class="offering-card__link">Find Out More</a>
-        </div>
-
-        <div class="offering-card">
-          <div class="offering-card__badge"><span>03</span></div>
-          <h3 class="offering-card__title">[OFFERING NAME — E.G. "SELF-STUDY COURSE"]</h3>
-          <p class="offering-card__desc">[2–3 sentences. Is this evergreen or cohort-based? What will someone be able to do when they finish?]</p>
-          <a href="#" class="offering-card__link">Find Out More</a>
-        </div>
+        <button class="offering-arrow offering-arrow--next" aria-label="Next">
+          <svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+        </button>
 
       </div>
     </div>
@@ -463,45 +477,19 @@
         <h2 class="testimonials__heading">[SECTION HEADLINE — 4–7 WORDS]</h2>
       </div>
 
-      <div class="testimonial-track">
+      <div class="testimonial-slide">
 
-        <div class="testimonial-card">
-          <p class="testimonial-card__quote">[TESTIMONIAL TEXT — A SHORT, SPECIFIC CLIENT QUOTE. IDEALLY MENTIONS A RESULT OR SHIFT. 20–40 WORDS.]</p>
-          <div class="testimonial-card__author">
-            <div class="placeholder-img testimonial-card__avatar" style="background-color:rgba(255,255,255,0.2);">
-              <span style="font-size:8px;color:rgba(255,255,255,0.6);padding:4px;">[CLIENT HEADSHOT]</span>
-            </div>
-            <div>
-              <span class="testimonial-card__name">[CLIENT NAME]</span>
-              <span class="testimonial-card__role">[JOB TITLE OR BUSINESS NAME]</span>
-            </div>
+        <div class="testimonial-slide__photo">
+          <div class="placeholder-img" style="width:100%;height:100%;">
+            <span style="color:rgba(255,255,255,0.55);">[CLIENT HEADSHOT — PORTRAIT CROP. WARM, APPROACHABLE EXPRESSION. SHOOT ON A CLEAN BACKGROUND.]</span>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <p class="testimonial-card__quote">[TESTIMONIAL TEXT — A SHORT, SPECIFIC CLIENT QUOTE. IDEALLY MENTIONS A RESULT OR SHIFT. 20–40 WORDS.]</p>
-          <div class="testimonial-card__author">
-            <div class="placeholder-img testimonial-card__avatar" style="background-color:rgba(255,255,255,0.2);">
-              <span style="font-size:8px;color:rgba(255,255,255,0.6);padding:4px;">[CLIENT HEADSHOT]</span>
-            </div>
-            <div>
-              <span class="testimonial-card__name">[CLIENT NAME]</span>
-              <span class="testimonial-card__role">[JOB TITLE OR BUSINESS NAME]</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-card__quote">[TESTIMONIAL TEXT — A SHORT, SPECIFIC CLIENT QUOTE. IDEALLY MENTIONS A RESULT OR SHIFT. 20–40 WORDS.]</p>
-          <div class="testimonial-card__author">
-            <div class="placeholder-img testimonial-card__avatar" style="background-color:rgba(255,255,255,0.2);">
-              <span style="font-size:8px;color:rgba(255,255,255,0.6);padding:4px;">[CLIENT HEADSHOT]</span>
-            </div>
-            <div>
-              <span class="testimonial-card__name">[CLIENT NAME]</span>
-              <span class="testimonial-card__role">[JOB TITLE OR BUSINESS NAME]</span>
-            </div>
-          </div>
+        <div class="testimonial-slide__content">
+          <span class="testimonial-slide__quote-mark">&ldquo;</span>
+          <p class="testimonial-slide__quote">[TESTIMONIAL TEXT — A SHORT, SPECIFIC CLIENT QUOTE. IDEALLY MENTIONS A MEASURABLE RESULT OR EMOTIONAL SHIFT. 20–45 WORDS.]</p>
+          <span class="testimonial-slide__name">[CLIENT NAME]</span>
+          <span class="testimonial-slide__role">[JOB TITLE OR BUSINESS NAME]</span>
         </div>
 
       </div>
@@ -510,6 +498,7 @@
         <button class="testimonials__dot active" aria-label="Testimonial 1"></button>
         <button class="testimonials__dot" aria-label="Testimonial 2"></button>
         <button class="testimonials__dot" aria-label="Testimonial 3"></button>
+        <button class="testimonials__dot" aria-label="Testimonial 4"></button>
       </div>
 
     </div>
@@ -585,7 +574,8 @@
             <p class="footer__optin-body">[1–2 sentences. Describe the freebie, the newsletter, or the community. What cadence? What kind of content? Make it worth signing up for.]</p>
           </div>
           <form class="email-form" action="#" method="post" novalidate>
-            <input class="email-form__input" type="email" placeholder="[YOUR EMAIL ADDRESS]" aria-label="Email address" />
+            <input class="email-form__input" type="text" placeholder="[FIRST NAME]" aria-label="First name" />
+            <input class="email-form__input" type="email" placeholder="[EMAIL ADDRESS]" aria-label="Email address" />
             <button type="submit" class="btn btn--light">[CTA — E.G. "GET INSTANT ACCESS"]</button>
           </form>
         </div>

@@ -336,7 +336,7 @@ p {
 }
 
 /* ------------------------------------------------------------
-   Navigation (base shell — filled out per section)
+   Navigation (base shell)
    ------------------------------------------------------------ */
 .nav {
   position: sticky;
@@ -446,6 +446,165 @@ p {
   }
 }
 
+/* ============================================================
+   NAV — Bella overrides
+   ============================================================ */
+
+.nav--calm {
+  background-color: var(--color-calm);
+  border-bottom: none;
+}
+
+/* Three-column grid: logo | links (centered) | spacer */
+.nav__inner--three {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 72px;
+}
+
+.nav__inner--three .nav__logo {
+  justify-self: start;
+}
+
+.nav__inner--three .nav__spacer {
+  justify-self: end;
+}
+
+.nav__inner--three .nav__burger {
+  display: none;
+  justify-self: end;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+:root {
+  --hero-overhang: 120px;
+}
+
+.hero {
+  background-color: var(--color-calm);
+  position: relative;
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+  min-height: 520px;
+  gap: var(--space-lg);
+}
+
+/* ---- Left content ---- */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-md);
+  padding-block: var(--space-xl);
+}
+
+.hero__h2 {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 300;
+  max-width: 440px;
+  line-height: 1.6;
+}
+
+/* CTA row: button + star */
+.hero__cta-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.hero__star {
+  width: 36px;
+  height: 36px;
+  fill: var(--color-bold);
+  flex-shrink: 0;
+  margin-top: 6px;
+  transform-origin: center;
+  transition: transform 0.55s var(--ease-out);
+}
+
+/* Star rotates when CTA button is hovered */
+.hero__btn:hover ~ .hero__star,
+.hero__btn:focus-visible ~ .hero__star {
+  transform: rotate(40deg);
+}
+
+/* ---- Right image column ---- */
+.hero__image-col {
+  position: relative;
+  z-index: 2;
+  align-self: start;
+  padding-top: var(--space-md);
+  margin-bottom: calc(var(--hero-overhang) * -1);
+}
+
+/* Bold-colour offset frame */
+.hero__frame {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.hero__frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  bottom: -10px;
+  right: -10px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bold);
+  z-index: -1;
+}
+
+.hero__placeholder {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: #d4d4d4;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-family: var(--font-body);
+  font-size: var(--size-small);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   AS SEEN IN
+   ============================================================ */
+
+.as-seen-in {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-highlight);
+  padding-top: calc(var(--hero-overhang) + var(--space-lg));
+  padding-bottom: var(--space-lg);
+}
+
+.as-seen-in__inner {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   Responsive — Tablet (≤ 1024px) — SECTION OVERRIDES
+   ============================================================ */
+
 /* ------------------------------------------------------------
    Responsive — Mobile (≤ 768px)
    ------------------------------------------------------------ */
@@ -453,6 +612,7 @@ p {
   :root {
     --space-xl:  4rem;
     --space-2xl: 6rem;
+    --hero-overhang: 60px;
   }
 
   .grid-2,
@@ -461,11 +621,38 @@ p {
     grid-template-columns: 1fr;
   }
 
+  /* Nav */
+  .nav__inner--three {
+    grid-template-columns: 1fr auto;
+  }
+
   .nav__links {
     display: none;
   }
 
-  .nav__burger {
+  .nav__spacer {
+    display: none;
+  }
+
+  .nav__inner--three .nav__burger {
     display: flex;
+  }
+
+  /* Hero */
+  .hero__inner {
+    grid-template-columns: 1fr;
+    min-height: unset;
+    gap: var(--space-md);
+  }
+
+  .hero__content {
+    padding-block: var(--space-lg) var(--space-sm);
+  }
+
+  .hero__image-col {
+    padding-top: 0;
+    margin-bottom: calc(var(--hero-overhang) * -1);
+    max-width: 80%;
+    margin-inline: auto;
   }
 }

@@ -2,7 +2,7 @@
 
 .hero {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 45% 55%;
     min-height: calc(100vh - 80px);
     border-bottom: 1px solid var(--color-black);
     overflow: hidden;
@@ -32,12 +32,20 @@
 .hero h1 {
     text-transform: uppercase;
     text-align: right;
-    font-size: 112px;
-    line-height: 108px;
-    margin-left: -6rem;
-    margin-bottom: 4rem;
+    /* Keep the two lines together and scale them with the viewport. */
+    width: max-content;
+    max-width: none;
+    align-self: flex-end;
+    font-size: clamp(3rem, 8vw, 9.375rem);
+    line-height: 0.95;
+    margin: 0 0 4rem;
     opacity: 0;
     animation: fadeInHero 1.4s ease forwards;
+}
+
+.hero h1 span {
+    display: block;
+    white-space: nowrap;
 }
 
 .hero-text {
@@ -139,11 +147,10 @@
     }
 
     .hero h1 {
-        margin-left: 0;
         margin-bottom: 3rem;
-        text-align: center;
-        font-size: 64px;
-        line-height: 68px;
+        text-align: right;
+        font-size: clamp(2.25rem, 11vw, 4rem);
+        line-height: 0.95;
     }
 
     .hero h2 {

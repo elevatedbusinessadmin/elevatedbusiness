@@ -5,8 +5,15 @@
     --color-light-pink: #ffebf9;
     --color-gray: #dbd9db;
 
-    --font-main: "Outfit", sans-serif;
+    --font-heading: "Kalnia", serif;
+    --font-subheading: "Archivo", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-button: "Syne", sans-serif;
 }
+
+/* ========================================
+   Reset
+======================================== */
 
 *,
 *::before,
@@ -14,19 +21,54 @@
     box-sizing: border-box;
 }
 
+/* ========================================
+   Global Typography
+======================================== */
+
 body {
     margin: 0;
-    font-family: var(--font-main);
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 33px;
+    line-height: 46px;
     color: var(--color-black);
     background: var(--color-white);
 }
 
+h1 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: 224px;
+    line-height: 213px;
+}
+
+h2 {
+    margin: 0;
+    font-family: var(--font-subheading);
+    font-weight: 300;
+    font-size: 31px;
+    line-height: 40px;
+}
+
+p {
+    margin: 0;
+}
+
+/* ========================================
+   Global Elements
+======================================== */
+
 a {
     color: inherit;
     text-decoration: none;
+    font-family: var(--font-button);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
 }
 
 img {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
 }

@@ -39,7 +39,7 @@ h1 {
     margin: 0;
     font-family: var(--font-heading);
     font-weight: 300;
-    font-size: 224px;
+    font-size: 72px;
     line-height: 213px;
 }
 
@@ -47,12 +47,25 @@ h2 {
     margin: 0;
     font-family: var(--font-subheading);
     font-weight: 300;
-    font-size: 31px;
+    font-size: 32px;
     line-height: 40px;
 }
 
+h3 {
+    margin: 0;
+    font-family: var(--font-subheading);
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+
 p {
     margin: 0;
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
 }
 
 /* ========================================

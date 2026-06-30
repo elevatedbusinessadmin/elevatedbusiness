@@ -731,7 +731,7 @@
     display: grid;
     grid-template-columns: minmax(15rem, 2fr) minmax(0, 3fr);
     align-items: center;
-    gap: clamp(3rem, 7vw, 8rem);
+    gap: clamp(2rem, 3.5vw, 4rem);
     width: 100%;
     max-width: 94rem;
     margin: 0 auto;
@@ -760,13 +760,13 @@
 }
 
 .testimonial-content::before {
-    content: "““";
+    content: "“";
     position: absolute;
     top: 0;
     left: 0;
     color: var(--testimonial-accent);
     font-family: var(--font-heading);
-    font-size: clamp(9rem, 14vw, 16rem);
+    font-size: clamp(24rem, 14vw, 16rem);
     font-weight: 300;
     line-height: 0.8;
     letter-spacing: -0.18em;
@@ -805,24 +805,38 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: clamp(3.5rem, 6vw, 6rem);
-    aspect-ratio: 1;
-    padding: 0;
-    border: 2px solid var(--testimonial-accent);
-    border-radius: 50%;
-    background: var(--testimonial-accent);
+    padding: 0.75rem;
+    border: 0;
+    background: transparent;
     color: var(--color-black);
     font-size: clamp(1.5rem, 2vw, 2.25rem);
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .testimonial-nav:hover,
 .testimonial-nav:focus-visible {
-    background: var(--color-black);
-    border-color: var(--color-black);
-    color: var(--color-white);
-    transform: scale(1.06);
+    background: transparent;
+    color: var(--color-black);
+}
+
+.testimonial-next:hover span,
+.testimonial-next:focus-visible span {
+    animation: arrowPulse 0.8s ease-in-out infinite alternate;
+}
+
+.testimonial-prev:hover span,
+.testimonial-prev:focus-visible span {
+    animation: testimonialArrowPulseLeft 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes testimonialArrowPulseLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-8px);
+    }
 }
 
 .testimonial-card.is-entering-next {

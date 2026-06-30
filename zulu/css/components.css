@@ -8,7 +8,7 @@ nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-large);
+    padding: var(--spacing-vertical) var(--spacing-horizontal) var(--spacing-large);
 }
 
 .brand {

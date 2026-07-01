@@ -75,6 +75,86 @@ if (calculator) {
   updateCalculator();
 }
 
+const testimonialCarousel = document.querySelector('[data-testimonial-carousel]');
+
+if (testimonialCarousel) {
+  const track = testimonialCarousel.querySelector('[data-carousel-track]');
+  const slides = [...track.children];
+  const dots = [...testimonialCarousel.querySelectorAll('[data-carousel-dot]')];
+  const previous = testimonialCarousel.querySelector('[data-carousel-previous]');
+  const next = testimonialCarousel.querySelector('[data-carousel-next]');
+  const toggle = testimonialCarousel.querySelector('[data-carousel-toggle]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const AUTOPLAY_DELAY = 7000;
+  let currentSlide = 0;
+  let autoplayTimer;
+  let userPaused = reducedMotion.matches;
+
+  const showSlide = (index) => {
+    currentSlide = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    slides.forEach((slide, slideIndex) => {
+      slide.setAttribute('aria-hidden', String(slideIndex !== currentSlide));
+    });
+    dots.forEach((dot, dotIndex) => {
+      if (dotIndex === currentSlide) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  };
+
+  const stopAutoplay = () => {
+    window.clearInterval(autoplayTimer);
+    autoplayTimer = undefined;
+  };
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    if (userPaused || document.hidden) return;
+    autoplayTimer = window.setInterval(() => showSlide(currentSlide + 1), AUTOPLAY_DELAY);
+  };
+
+  const setPaused = (paused) => {
+    userPaused = paused;
+    toggle.innerHTML = paused
+      ? '<span aria-hidden="true">▶</span> Play'
+      : '<span aria-hidden="true">Ⅱ</span> Pause';
+    toggle.setAttribute('aria-label', paused ? 'Play testimonial rotation' : 'Pause testimonial rotation');
+    if (paused) stopAutoplay();
+    else startAutoplay();
+  };
+
+  const moveManually = (offset) => {
+    showSlide(currentSlide + offset);
+    startAutoplay();
+  };
+
+  previous.addEventListener('click', () => moveManually(-1));
+  next.addEventListener('click', () => moveManually(1));
+  dots.forEach((dot, index) => dot.addEventListener('click', () => {
+    showSlide(index);
+    startAutoplay();
+  }));
+  toggle.addEventListener('click', () => setPaused(!userPaused));
+
+  testimonialCarousel.addEventListener('mouseenter', stopAutoplay);
+  testimonialCarousel.addEventListener('mouseleave', startAutoplay);
+  testimonialCarousel.addEventListener('focusin', stopAutoplay);
+  testimonialCarousel.addEventListener('focusout', () => {
+    window.setTimeout(() => {
+      if (!testimonialCarousel.contains(document.activeElement)) startAutoplay();
+    }, 0);
+  });
+  testimonialCarousel.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') moveManually(-1);
+    if (event.key === 'ArrowRight') moveManually(1);
+  });
+  document.addEventListener('visibilitychange', startAutoplay);
+
+  setPaused(userPaused);
+  showSlide(0);
+}
+
 document.querySelectorAll('.accordion details').forEach((item) => {
   item.addEventListener('toggle', () => {
     if (!item.open) return;

@@ -217,16 +217,44 @@
       </div>
     </section>
 
-    <section class="section testimonials" aria-labelledby="testimonials-title">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Kind words</p>
-          <h2 id="testimonials-title">What clients say</h2>
+    <section class="testimonials" aria-labelledby="testimonials-title" aria-roledescription="carousel" data-testimonial-carousel>
+      <div class="container testimonial-container">
+        <div class="testimonial-heading reveal">
+          <div>
+            <p class="eyebrow">Kind words</p>
+            <h2 id="testimonials-title">What clients say</h2>
+          </div>
+          <p>Real support. Tangible breathing room. Happier business owners.</p>
         </div>
-        <div class="testimonial-grid">
-          <figure class="testimonial reveal"><blockquote>“Katie took over my entire inbox and scheduling in one week. I haven't had to think about admin since. She's a total professional.”</blockquote><figcaption><strong>Sarah Mitchell</strong><span>Marketing consultant</span></figcaption></figure>
-          <figure class="testimonial reveal"><blockquote>“I was sceptical about outsourcing. Katie made it so easy. She asks the right questions and delivers every single time.”</blockquote><figcaption><strong>James Chen</strong><span>Tech founder</span></figcaption></figure>
-          <figure class="testimonial reveal"><blockquote>“Best decision I made for my business. Katie is reliable, proactive, and genuinely cares. Highly recommended.”</blockquote><figcaption><strong>Emma Thompson</strong><span>Business coach</span></figcaption></figure>
+
+        <div class="carousel-shell reveal">
+          <button class="carousel-arrow carousel-previous" type="button" aria-label="Previous testimonial" data-carousel-previous>←</button>
+          <div class="testimonial-viewport" aria-live="off">
+            <div class="testimonial-track" data-carousel-track>
+              <figure class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                <blockquote>“Katie took over my entire inbox and scheduling in one week. I haven't had to think about admin since. She's a total professional.”</blockquote>
+                <figcaption><strong>Sarah Mitchell</strong><span>Marketing consultant</span></figcaption>
+              </figure>
+              <figure class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
+                <blockquote>“I was sceptical about outsourcing. Katie made it so easy. She asks the right questions and delivers every single time.”</blockquote>
+                <figcaption><strong>James Chen</strong><span>Tech founder</span></figcaption>
+              </figure>
+              <figure class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
+                <blockquote>“Best decision I made for my business. Katie is reliable, proactive, and genuinely cares. Highly recommended.”</blockquote>
+                <figcaption><strong>Emma Thompson</strong><span>Business coach</span></figcaption>
+              </figure>
+            </div>
+          </div>
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Next testimonial" data-carousel-next>→</button>
+        </div>
+
+        <div class="carousel-footer reveal">
+          <div class="carousel-dots" aria-label="Choose a testimonial">
+            <button type="button" aria-label="Show testimonial 1" aria-current="true" data-carousel-dot="0"></button>
+            <button type="button" aria-label="Show testimonial 2" data-carousel-dot="1"></button>
+            <button type="button" aria-label="Show testimonial 3" data-carousel-dot="2"></button>
+          </div>
+          <button class="carousel-toggle" type="button" aria-label="Pause testimonial rotation" data-carousel-toggle><span aria-hidden="true">Ⅱ</span> Pause</button>
         </div>
       </div>
     </section>

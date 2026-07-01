@@ -183,29 +183,29 @@ em { color: var(--coral); font-weight: 400; }
 .calculator-return-grid strong { color: var(--navy); font: 700 1.25rem var(--serif); }
 .calculator-note { margin: .8rem 0 0; color: var(--ink-soft); font-size: .6rem; text-align: center; }
 
-.testimonials { position: relative; overflow: hidden; padding: clamp(4rem, 7vw, 6rem) 0; background: var(--sand); color: var(--navy); }
-.testimonials::after { position: absolute; right: -100px; bottom: -250px; width: 430px; height: 430px; border: 70px solid rgba(228,105,74,.1); border-radius: 50%; content: ""; }
+.testimonials { position: relative; overflow: hidden; padding: clamp(4rem, 7vw, 6rem) 0; background: var(--navy); color: white; }
+.testimonials::after { position: absolute; right: -100px; bottom: -250px; width: 430px; height: 430px; border: 70px solid rgba(228,105,74,.09); border-radius: 50%; content: ""; }
 .testimonial-container { position: relative; z-index: 1; }
 .testimonial-heading { margin-bottom: clamp(2rem, 4vw, 3.2rem); }
-.testimonial-heading h2 { margin: 0; color: var(--navy); font-size: clamp(2.3rem, 4vw, 3.5rem); }
+.testimonial-heading h2 { margin: 0; color: var(--sand); font-size: clamp(2.3rem, 4vw, 3.5rem); }
 .testimonial-heading .eyebrow { margin-bottom: .5rem; }
 .carousel-shell { display: grid; align-items: center; grid-template-columns: 52px minmax(0, 860px) 52px; justify-content: center; gap: clamp(.8rem, 2vw, 1.5rem); }
 .testimonial-viewport { overflow: hidden; border-radius: var(--radius); }
 .testimonial-track { display: flex; transform: translateX(0); transition: transform .6s cubic-bezier(.22,.7,.24,1); }
-.testimonial-slide { display: grid; min-width: 100%; margin: 0; padding: clamp(2rem, 5vw, 3.5rem); border: 1px solid rgba(23,44,58,.1); border-radius: var(--radius); background: white; box-shadow: 0 18px 50px rgba(23,44,58,.1); align-items: center; grid-template-columns: minmax(0, 1fr) 190px; gap: clamp(2rem, 6vw, 4rem); }
+.testimonial-slide { display: grid; min-width: 100%; margin: 0; padding: clamp(2rem, 5vw, 3.5rem); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); background: var(--sand); box-shadow: 0 18px 50px rgba(0,0,0,.18); align-items: center; grid-template-columns: minmax(0, 1fr) 190px; gap: clamp(2rem, 6vw, 4rem); }
 .testimonial-slide blockquote { position: relative; margin: 0; padding-left: 2.3rem; color: var(--navy); font: italic 600 clamp(1.3rem, 2.4vw, 1.8rem)/1.5 var(--serif); }
 .testimonial-slide blockquote::before { position: absolute; top: -.35rem; left: 0; color: var(--coral); content: "“"; font: 700 3.7rem/.8 var(--serif); }
 .testimonial-slide figcaption { display: flex; min-height: 74px; padding-left: 2rem; border-left: 1px solid var(--line); flex-direction: column; justify-content: center; }
 .testimonial-slide figcaption strong { font: 700 .82rem var(--display); }
 .testimonial-slide figcaption span { color: var(--ink-soft); font-size: .7rem; }
-.carousel-arrow { display: grid; width: 52px; height: 52px; padding: 0; border: 1px solid rgba(23,44,58,.22); border-radius: 50%; background: transparent; color: var(--navy); font-size: 1.35rem; cursor: pointer; transition: border-color .2s, background .2s, color .2s, transform .2s; place-items: center; }
+.carousel-arrow { display: grid; width: 52px; height: 52px; padding: 0; border: 1px solid rgba(247,244,238,.35); border-radius: 50%; background: transparent; color: var(--sand); font-size: 1.35rem; cursor: pointer; transition: border-color .2s, background .2s, color .2s, transform .2s; place-items: center; }
 .carousel-arrow:hover { border-color: var(--coral); background: var(--coral); color: white; transform: scale(1.05); }
 .carousel-footer { display: flex; margin-top: 1.2rem; align-items: center; justify-content: center; gap: 1.2rem; }
 .carousel-dots { display: flex; align-items: center; gap: .5rem; }
-.carousel-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 20px; background: rgba(23,44,58,.25); cursor: pointer; transition: width .25s, background .25s; }
+.carousel-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 20px; background: rgba(247,244,238,.3); cursor: pointer; transition: width .25s, background .25s; }
 .carousel-dots button[aria-current="true"] { width: 24px; background: var(--coral); }
-.carousel-toggle { padding: .3rem .55rem; border: 0; background: transparent; color: var(--ink-soft); font: 600 .62rem var(--display); cursor: pointer; }
-.carousel-toggle:hover { color: var(--navy); }
+.carousel-toggle { padding: .3rem .55rem; border: 0; background: transparent; color: rgba(247,244,238,.62); font: 600 .62rem var(--display); cursor: pointer; }
+.carousel-toggle:hover { color: var(--sand); }
 
 .guide { position: relative; overflow: hidden; background: var(--coral); color: white; }
 .guide-shape { position: absolute; top: -230px; right: -150px; width: 610px; height: 610px; border: 90px solid rgba(255,255,255,.08); border-radius: 50%; }

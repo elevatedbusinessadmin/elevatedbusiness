@@ -168,6 +168,55 @@
       </div>
     </section>
 
+    <section class="section time-calculator" id="calculator" data-calculator>
+      <div class="calculator-ring" aria-hidden="true"></div>
+      <div class="container calculator-layout">
+        <div class="calculator-intro reveal">
+          <p class="eyebrow">Put a value on your time</p>
+          <h2>The Time-Back Calculator</h2>
+          <p>See what admin is really costing your business—and what you could gain by handing it over. Adjust the sliders to reveal the value and time currently tied up in your weekly admin.</p>
+          <p class="calculator-assumption">Based on 52 working weeks and a fixed VA rate of £35 per hour.</p>
+        </div>
+
+        <div class="calculator-card reveal">
+          <div class="calculator-control">
+            <div class="calculator-label-row">
+              <label for="hourly-value">Your hourly value</label>
+              <output for="hourly-value" data-hourly-output>£100</output>
+            </div>
+            <input id="hourly-value" type="range" min="40" max="500" step="10" value="100" data-hourly-value>
+            <div class="range-limits" aria-hidden="true"><span>£40</span><span>£500</span></div>
+          </div>
+
+          <div class="calculator-control">
+            <div class="calculator-label-row">
+              <label for="admin-hours">Time spent doing admin</label>
+              <output for="admin-hours" data-hours-output>10 hrs/week</output>
+            </div>
+            <input id="admin-hours" type="range" min="1" max="40" step="1" value="10" data-admin-hours>
+            <div class="range-limits" aria-hidden="true"><span>1 hr</span><span>40 hrs</span></div>
+          </div>
+
+          <div class="calculator-result" aria-live="polite">
+            <p class="result-label">Annual value tied up in admin</p>
+            <output class="result-total" data-annual-value>£52,000</output>
+            <p class="result-investment">At a VA rate of <strong data-va-rate>£35/hour</strong>, your annual investment would be <strong data-va-investment>£18,200</strong>.</p>
+            <div class="calculator-return-grid">
+              <div>
+                <span>Potential value unlocked</span>
+                <strong data-value-unlocked>£33,800</strong>
+              </div>
+              <div>
+                <span>Time returned each year</span>
+                <strong data-hours-returned>520 hours</strong>
+              </div>
+            </div>
+          </div>
+          <p class="calculator-note">This is an illustrative opportunity-cost estimate, not a guarantee of additional revenue.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section testimonials" aria-labelledby="testimonials-title">
       <div class="container">
         <div class="section-heading reveal">
@@ -204,7 +253,6 @@
             <strong>How to<br>outsource<br>with confidence</strong>
             <i>A practical guide for busy business owners</i>
           </div>
-          <span class="placeholder-label">Your guide cover</span>
         </div>
       </div>
     </section>

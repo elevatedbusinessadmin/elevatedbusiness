@@ -10,6 +10,7 @@ const demoStage = document.querySelector('[data-demo-stage]');
 const demoClose = document.querySelector('[data-demo-close]');
 const demoOpenButtons = document.querySelectorAll('[data-demo-open]');
 const deviceButtons = document.querySelectorAll('[data-device]');
+const faqItems = document.querySelectorAll('.faq-item');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const updateHeader = () => {
@@ -32,6 +33,15 @@ navToggle?.addEventListener('click', () => {
 });
 
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+
+faqItems.forEach((item) => {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    faqItems.forEach((otherItem) => {
+      if (otherItem !== item) otherItem.open = false;
+    });
+  });
+});
 
 const closeDemo = () => {
   if (!demoDialog?.open) return;

@@ -105,35 +105,8 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
 .hero-foot a i { position: relative; display: block; width: 1px; height: 42px; overflow: hidden; background: rgba(30,35,39,.2); }
 .hero-foot a i::after { position: absolute; top: -100%; left: 0; width: 1px; height: 70%; background: var(--ink); content: ""; animation: scrollLine 2.2s infinite ease-in-out; }
 
-.hero-duplicate .hero-copy { padding-left: clamp(2rem, 4vw, 4.5rem); }
-.hero-duplicate .duplicate-headline { font-size: clamp(3.8rem, 5.8vw, 6.5rem); line-height: .9; }
-.duplicate-headline > span { display: block; white-space: nowrap; }
-.hero-period { position: relative; z-index: 2; display: inline-block; margin: 0; padding: 0; border: 0; background: transparent; color: #9b7c52; font-family: inherit; font-size: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline; cursor: pointer; }
-.hero-period::before, .hero-period::after { position: absolute; top: 76%; left: 52%; width: .28em; height: 1px; background: linear-gradient(90deg, transparent, var(--champagne), transparent); content: ""; opacity: 0; pointer-events: none; transform: translate(-50%, -50%) scaleX(0); }
-.hero-period::after { transform: translate(-50%, -50%) rotate(90deg) scaleX(0); }
-.hero-period:hover, .hero-period:focus-visible { color: #806746; }
-.hero-period:focus-visible { border-radius: 50%; outline: 1px solid rgba(155,124,82,.55); outline-offset: .04em; }
-.hero-period.sparkle-active { animation: periodGlow .72s ease-out; }
-.hero-period.sparkle-active::before { animation: sparkleRay .72s ease-out; }
-.hero-period.sparkle-active::after { animation: sparkleRayVertical .72s ease-out; }
-.hero-duplicate.sparkle-clicked .hero-object { animation: objectRespond .78s ease-out; }
-
-@keyframes periodGlow {
-  0%, 100% { text-shadow: 0 0 0 transparent; transform: scale(1); }
-  42% { text-shadow: 0 0 .16em rgba(184,151,96,.72); transform: scale(1.12); }
-}
-@keyframes sparkleRay {
-  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scaleX(0); }
-  38% { opacity: .9; transform: translate(-50%, -50%) scaleX(1); }
-}
-@keyframes sparkleRayVertical {
-  0%, 100% { opacity: 0; transform: translate(-50%, -50%) rotate(90deg) scaleX(0); }
-  38% { opacity: .9; transform: translate(-50%, -50%) rotate(90deg) scaleX(1); }
-}
-@keyframes objectRespond {
-  0%, 100% { transform: translateY(0) scale(1); }
-  45% { transform: translateY(-4px) scale(1.008); }
-}
+.hero .hero-copy { padding-left: clamp(2rem, 4vw, 4.5rem); }
+.hero h1 { line-height: .97; }
 .for-you { position: relative; overflow: hidden; padding: clamp(6rem, 10vw, 10rem) 0 clamp(5rem, 8vw, 8rem); background: #20272b; color: #eef1ef; isolation: isolate; }
 .for-you::before { position: absolute; z-index: -1; inset: 0; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E"); content: ""; mix-blend-mode: screen; }
 .for-you::after { position: absolute; z-index: -2; top: -10rem; right: -10rem; width: 35rem; height: 35rem; border: 1px solid rgba(223,205,167,.13); content: ""; transform: rotate(45deg); }
@@ -574,7 +547,7 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
   h1 { font-size: clamp(4rem, 11vw, 7rem); }
   .hero-object { width: min(62vw, 480px); margin-right: 3vw; justify-self: end; }
   .hero-foot { width: min(100% - 40px, 800px); margin-top: 1rem; }
-  .hero-duplicate .hero-copy { padding-left: 0; }
+  .hero .hero-copy { padding-left: 0; }
   .for-you-heading, .for-you-foot { width: min(100% - 40px, 800px); }
   .for-you-heading { grid-template-columns: 1fr; gap: 2.5rem; }
   .for-you-title { grid-template-columns: 1fr; }
@@ -655,7 +628,6 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
   .hero-foot p { max-width: 230px; font-size: .58rem; }
   .hero-foot a span { display: none; }
   .hero-foot a i { height: 32px; }
-  .duplicate-headline > span { white-space: normal; }
   .for-you { padding: 5rem 0 4.5rem; }
   .for-you-heading, .for-you-foot { width: calc(100% - 34px); }
   .for-you-heading { gap: 2rem; }

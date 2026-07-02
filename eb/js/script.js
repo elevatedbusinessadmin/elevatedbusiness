@@ -5,6 +5,7 @@ const diamond = document.querySelector('[data-diamond]');
 const hero = document.querySelector('[data-hero]');
 const duplicateDiamond = document.querySelector('[data-diamond-duplicate]');
 const duplicateHero = document.querySelector('[data-hero-duplicate]');
+const sparkleTrigger = document.querySelector('[data-sparkle-trigger]');
 const demoDialog = document.querySelector('[data-demo-dialog]');
 const demoFrame = document.querySelector('[data-demo-frame]');
 const demoTitle = document.querySelector('[data-demo-title]');
@@ -17,6 +18,20 @@ const year = document.querySelector('[data-year]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (year) year.textContent = new Date().getFullYear();
+
+sparkleTrigger?.addEventListener('click', () => {
+  const sparkleHero = sparkleTrigger.closest('.hero-duplicate');
+  sparkleTrigger.classList.remove('sparkle-active');
+  sparkleHero?.classList.remove('sparkle-clicked');
+  void sparkleTrigger.offsetWidth;
+  sparkleTrigger.classList.add('sparkle-active');
+  sparkleHero?.classList.add('sparkle-clicked');
+
+  window.setTimeout(() => {
+    sparkleTrigger.classList.remove('sparkle-active');
+    sparkleHero?.classList.remove('sparkle-clicked');
+  }, 800);
+});
 
 const updateHeader = () => {
   header?.classList.toggle('scrolled', window.scrollY > 20);

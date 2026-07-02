@@ -3,6 +3,8 @@ const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
 const diamond = document.querySelector('[data-diamond]');
 const hero = document.querySelector('[data-hero]');
+const duplicateDiamond = document.querySelector('[data-diamond-duplicate]');
+const duplicateHero = document.querySelector('[data-hero-duplicate]');
 const demoDialog = document.querySelector('[data-demo-dialog]');
 const demoFrame = document.querySelector('[data-demo-frame]');
 const demoTitle = document.querySelector('[data-demo-title]');
@@ -100,6 +102,24 @@ if (!reduceMotion && diamond && hero) {
     if (!ticking) {
       window.requestAnimationFrame(rotateDiamond);
       ticking = true;
+    }
+  }, { passive: true });
+}
+
+if (!reduceMotion && duplicateDiamond && duplicateHero) {
+  let duplicateTicking = false;
+
+  const rotateDuplicateDiamond = () => {
+    const distanceIntoHero = window.scrollY - duplicateHero.offsetTop;
+    const progress = Math.min(Math.max(distanceIntoHero / Math.max(duplicateHero.offsetHeight * .8, 1), 0), 1);
+    duplicateDiamond.style.transform = `rotate(${8 + progress * 37}deg)`;
+    duplicateTicking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!duplicateTicking) {
+      window.requestAnimationFrame(rotateDuplicateDiamond);
+      duplicateTicking = true;
     }
   }, { passive: true });
 }

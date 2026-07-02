@@ -62,8 +62,8 @@ button { color: inherit; font: inherit; }
 .eyebrow { display: flex; margin: 0 0 2rem; align-items: center; gap: .75rem; color: #555d60; font-size: .69rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
 .eyebrow span { width: 38px; height: 1px; background: linear-gradient(90deg, var(--champagne), var(--champagne-light)); }
 h1 { max-width: 850px; margin: 0; font-family: var(--serif); font-size: clamp(4.15rem, 7.4vw, 8rem); font-weight: 400; letter-spacing: normal; line-height: .94; text-wrap: balance; }
-h1 em { position: relative; color: inherit; font-style: normal; white-space: nowrap; }
-h1 em::after { position: absolute; right: .05em; bottom: -.06em; left: .04em; height: .08em; background: linear-gradient(90deg, transparent, var(--champagne) 14%, var(--champagne-light) 83%, transparent); content: ""; opacity: .8; transform: rotate(-1.5deg); }
+h1 em { position: relative; z-index: 0; color: inherit; font-style: normal; white-space: nowrap; }
+h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; left: .04em; height: .08em; background: linear-gradient(90deg, transparent, var(--champagne) 14%, var(--champagne-light) 83%, transparent); content: ""; opacity: .8; transform: rotate(-1.5deg); }
 .hero-intro { max-width: 650px; margin: 2rem 0 0; color: var(--ink-soft); font-size: clamp(.98rem, 1.2vw, 1.12rem); line-height: 1.75; }
 .hero-actions { display: flex; margin-top: 2.35rem; align-items: center; gap: 2rem; }
 .button { display: inline-flex; min-height: 55px; align-items: center; justify-content: center; gap: 1.8rem; padding: .9rem 1.35rem .9rem 1.6rem; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; transition: transform .25s, background .25s, box-shadow .25s; }

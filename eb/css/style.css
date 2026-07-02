@@ -311,6 +311,50 @@ h1 em::after { position: absolute; right: .05em; bottom: -.06em; left: .04em; he
 
 @keyframes portraitSheen { 0%, 25% { left: -80%; } 60%, 100% { left: 130%; } }
 
+.founding { position: relative; overflow: hidden; padding: clamp(6rem, 11vw, 11rem) 0 clamp(6rem, 10vw, 9rem); background:
+    linear-gradient(135deg, rgba(255,255,255,.72), transparent 42%),
+    linear-gradient(180deg, #f7f7f3, #eeeae3); isolation: isolate; }
+.founding::before { position: absolute; z-index: -2; inset: 0; opacity: .14; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E"); content: ""; mix-blend-mode: multiply; }
+.founding-light { position: absolute; z-index: -2; border-radius: 50%; filter: blur(45px); }
+.founding-light-one { top: 3%; right: 7%; width: 40vw; height: 28vw; background: radial-gradient(circle, rgba(216,211,231,.5), rgba(197,220,226,.22) 50%, transparent 72%); }
+.founding-light-two { bottom: -8%; left: -6%; width: 37vw; height: 30vw; background: radial-gradient(circle, rgba(234,212,204,.38), rgba(223,205,167,.12) 52%, transparent 72%); }
+.founding-heading, .founding-invitation, .offer-reason { width: min(1240px, calc(100% - 64px)); margin-inline: auto; }
+.founding-title-row { display: grid; margin-top: 2.2rem; align-items: end; grid-template-columns: minmax(0, 1.35fr) minmax(270px, .65fr); gap: clamp(3rem, 8vw, 9rem); }
+.founding h2 { margin: 0; font-family: var(--serif); font-size: clamp(4rem, 7.7vw, 8.2rem); font-weight: 400; letter-spacing: -.045em; line-height: .9; }
+.founding h2 em { color: #8d7250; font-style: normal; }
+.founding-title-row > p { max-width: 430px; margin: 0 .4rem .4rem 0; color: var(--ink-soft); font-size: .93rem; line-height: 1.75; }
+.founding-invitation { position: relative; display: grid; margin-top: clamp(5rem, 9vw, 9rem); padding: clamp(3rem, 7vw, 7rem); border: 1px solid rgba(142,113,74,.35); background: rgba(255,255,255,.46); box-shadow: inset 0 0 65px rgba(255,255,255,.7), 0 35px 85px rgba(74,79,79,.1); align-items: center; grid-template-columns: minmax(280px, .82fr) auto minmax(330px, 1.18fr); gap: clamp(3rem, 7vw, 7rem); backdrop-filter: blur(16px); }
+.founding-invitation::before { position: absolute; inset: 12px; border: 1px solid rgba(142,113,74,.14); content: ""; pointer-events: none; }
+.invitation-corner { position: absolute; z-index: 2; width: 34px; height: 34px; border-color: #9d7d53; }
+.corner-one { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
+.corner-two { top: -1px; right: -1px; border-top: 2px solid; border-right: 2px solid; }
+.corner-three { right: -1px; bottom: -1px; border-right: 2px solid; border-bottom: 2px solid; }
+.corner-four { bottom: -1px; left: -1px; border-bottom: 2px solid; border-left: 2px solid; }
+.offer-primary { text-align: center; }
+.offer-status { display: inline-flex; margin-bottom: 2.5rem; padding: .55rem .8rem; border: 1px solid rgba(30,35,39,.12); background: rgba(255,255,255,.4); align-items: center; gap: .55rem; color: #646b6d; font-size: .55rem; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
+.offer-status i { width: 6px; height: 6px; border-radius: 50%; background: #8c9f82; box-shadow: 0 0 0 4px rgba(140,159,130,.13); }
+.offer-overline { margin: 0; color: #806746; font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+.zero-fee { display: flex; margin: 1rem 0 .8rem; align-items: flex-start; justify-content: center; font-family: var(--serif); font-size: clamp(8rem, 15vw, 14rem); letter-spacing: -.09em; line-height: .72; }
+.zero-fee span { margin: .25em .08em 0 0; color: #9b7c52; font-family: var(--sans); font-size: .15em; font-weight: 500; letter-spacing: 0; }
+.zero-caption { margin: 0; color: var(--ink-soft); font-size: .7rem; line-height: 1.65; }
+.offer-divider { display: grid; width: 72px; height: 72px; border: 1px solid rgba(142,113,74,.38); transform: rotate(45deg); place-items: center; }
+.offer-divider span { width: 24px; height: 24px; border: 1px solid rgba(30,35,39,.12); }
+.offer-details { position: relative; z-index: 1; }
+.offer-details h3 { margin: 1.2rem 0 0; font-family: var(--serif); font-size: clamp(3rem, 5vw, 5.4rem); font-weight: 400; letter-spacing: -.04em; line-height: .94; }
+.offer-details h3 em { color: #8d7250; font-style: normal; }
+.offer-details > p:not(.offer-overline) { max-width: 550px; margin: 1.5rem 0 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.7; }
+.rate-lock { display: grid; max-width: 570px; margin-top: 2rem; padding: 1.35rem 1.45rem; border: 1px solid rgba(30,35,39,.12); background: rgba(232,228,220,.55); grid-template-columns: 28px 1fr; gap: 1rem; }
+.rate-lock-gem { width: 19px; height: 19px; margin-top: .2rem; border: 1px solid #9b7c52; transform: rotate(45deg); }
+.rate-lock p { margin: 0 0 .35rem; color: #806746; font-size: .52rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+.rate-lock strong { display: block; font-family: var(--serif); font-size: 1.25rem; font-weight: 400; line-height: 1.25; }
+.rate-lock div > span { display: block; margin-top: .45rem; color: #6c7375; font-size: .63rem; line-height: 1.55; }
+.offer-button { width: max-content; margin-top: 2rem; }
+.offer-reason { display: grid; margin-top: clamp(3rem, 6vw, 5rem); padding-top: 2rem; border-top: 1px solid var(--line); align-items: start; grid-template-columns: .45fr 1.1fr .45fr; gap: clamp(2rem, 6vw, 6rem); }
+.offer-reason > p { margin: 0; color: #806746; font-size: .59rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.offer-reason h3 { margin: 0; font-family: var(--serif); font-size: clamp(1.65rem, 2.5vw, 2.5rem); font-weight: 400; line-height: 1.15; }
+.offer-reason div > p { max-width: 650px; margin: 1rem 0 0; color: var(--ink-soft); font-size: .74rem; line-height: 1.7; }
+.offer-reason > span { justify-self: end; color: #737a7b; font-size: .55rem; font-weight: 600; letter-spacing: .09em; line-height: 1.5; text-align: right; text-transform: uppercase; }
+
 @keyframes dialogIn { from { opacity: 0; transform: translateY(12px) scale(.99); } to { opacity: 1; transform: none; } }
 
 @keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
@@ -373,6 +417,17 @@ h1 em::after { position: absolute; right: .05em; bottom: -.06em; left: .04em; he
   .about-layout { grid-template-columns: 1fr; gap: 5.5rem; }
   .about-portrait-wrap { width: min(72vw, 500px); }
   .about-copy { max-width: 760px; }
+  .founding-heading, .founding-invitation, .offer-reason { width: min(100% - 40px, 800px); }
+  .founding-title-row { grid-template-columns: 1fr; gap: 2rem; }
+  .founding-invitation { grid-template-columns: 1fr; }
+  .offer-divider { width: 52px; height: 52px; margin-inline: auto; }
+  .offer-divider span { width: 19px; height: 19px; }
+  .offer-details { max-width: 620px; margin-inline: auto; text-align: center; }
+  .offer-details > p:not(.offer-overline), .rate-lock { margin-right: auto; margin-left: auto; }
+  .rate-lock { text-align: left; }
+  .offer-button { margin-right: auto; margin-left: auto; }
+  .offer-reason { grid-template-columns: .4fr 1.2fr; }
+  .offer-reason > span { justify-self: start; grid-column: 2; text-align: left; }
 }
 
 @media (max-width: 600px) {
@@ -464,6 +519,17 @@ h1 em::after { position: absolute; right: .05em; bottom: -.06em; left: .04em; he
   .about-columns { grid-template-columns: 1fr; gap: 1.3rem; }
   .about-principles { grid-template-columns: 1fr; gap: 1.2rem; }
   .about-statement { margin-top: 6rem; }
+  .founding { padding: 5.5rem 0 5rem; }
+  .founding-heading, .founding-invitation, .offer-reason { width: calc(100% - 34px); }
+  .founding-title-row { margin-top: 1.7rem; }
+  .founding h2 { font-size: clamp(4rem, 18vw, 5.5rem); }
+  .founding-invitation { margin-top: 4rem; padding: 3.2rem 1.35rem; gap: 2.7rem; }
+  .offer-status { margin-bottom: 2rem; }
+  .zero-fee { font-size: clamp(8.5rem, 45vw, 12rem); }
+  .offer-details h3 { font-size: clamp(3rem, 13vw, 4.5rem); }
+  .rate-lock { padding: 1.2rem 1rem; }
+  .offer-reason { grid-template-columns: 1fr; gap: 1.2rem; }
+  .offer-reason > span { margin-top: 1rem; grid-column: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

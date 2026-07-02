@@ -11,7 +11,10 @@ const demoClose = document.querySelector('[data-demo-close]');
 const demoOpenButtons = document.querySelectorAll('[data-demo-open]');
 const deviceButtons = document.querySelectorAll('[data-device]');
 const faqItems = document.querySelectorAll('.faq-item');
+const year = document.querySelector('[data-year]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (year) year.textContent = new Date().getFullYear();
 
 const updateHeader = () => {
   header?.classList.toggle('scrolled', window.scrollY > 20);

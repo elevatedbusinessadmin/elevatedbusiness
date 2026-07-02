@@ -3,6 +3,13 @@ const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
 const diamond = document.querySelector('[data-diamond]');
 const hero = document.querySelector('[data-hero]');
+const demoDialog = document.querySelector('[data-demo-dialog]');
+const demoFrame = document.querySelector('[data-demo-frame]');
+const demoTitle = document.querySelector('[data-demo-title]');
+const demoStage = document.querySelector('[data-demo-stage]');
+const demoClose = document.querySelector('[data-demo-close]');
+const demoOpenButtons = document.querySelectorAll('[data-demo-open]');
+const deviceButtons = document.querySelectorAll('[data-device]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const updateHeader = () => {
@@ -25,6 +32,47 @@ navToggle?.addEventListener('click', () => {
 });
 
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+
+const closeDemo = () => {
+  if (!demoDialog?.open) return;
+  demoDialog.close();
+  if (demoFrame) demoFrame.src = 'about:blank';
+};
+
+demoOpenButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (!demoDialog || !demoFrame) return;
+    demoFrame.src = button.dataset.demoSrc;
+    if (demoTitle) demoTitle.textContent = button.dataset.demoTitle || 'Website preview';
+    if (demoStage) demoStage.dataset.view = 'desktop';
+    deviceButtons.forEach((deviceButton) => {
+      const active = deviceButton.dataset.device === 'desktop';
+      deviceButton.classList.toggle('active', active);
+      deviceButton.setAttribute('aria-pressed', String(active));
+    });
+    demoDialog.showModal();
+  });
+});
+
+deviceButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (demoStage) demoStage.dataset.view = button.dataset.device;
+    deviceButtons.forEach((deviceButton) => {
+      const active = deviceButton === button;
+      deviceButton.classList.toggle('active', active);
+      deviceButton.setAttribute('aria-pressed', String(active));
+    });
+  });
+});
+
+demoClose?.addEventListener('click', closeDemo);
+demoDialog?.addEventListener('click', (event) => {
+  if (event.target === demoDialog) closeDemo();
+});
+demoDialog?.addEventListener('cancel', (event) => {
+  event.preventDefault();
+  closeDemo();
+});
 
 if (!reduceMotion && diamond && hero) {
   let ticking = false;

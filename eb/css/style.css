@@ -786,7 +786,7 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
 .faq-answer p,
 .contact-lead,
 .contact-expectations li p {
-  font-size: clamp(1rem, 1.05vw, 1.08rem);
+  font-size: clamp(1.063rem, 1.1vw, 1.188rem);
   line-height: 1.72;
 }
 

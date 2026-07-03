@@ -175,6 +175,7 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
 .project-open { display: flex; width: max-content; margin-top: 2rem; padding: 0 0 .5rem; border: 0; border-bottom: 1px solid rgba(30,35,39,.4); background: transparent; color: var(--ink); font-family: var(--sans); font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; cursor: pointer; }
 .project-open span { margin-left: .7rem; color: #9b7d53; transition: transform .25s; }
 .project-open:hover span { transform: translate(3px, -3px); }
+.project-zulu { grid-template-columns: minmax(280px, .65fr) minmax(0, 1.35fr); }
 .project-zulu .browser-preview { order: 2; }
 .project-zulu .project-details { padding-left: clamp(1rem, 4vw, 4rem); order: 1; }
 .reserved-canvas { position: relative; display: grid; overflow: hidden; min-height: clamp(320px, 42vw, 520px); border: 1px solid rgba(30,35,39,.14); background:

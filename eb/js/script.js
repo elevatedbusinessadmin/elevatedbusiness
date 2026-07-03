@@ -98,6 +98,14 @@ demoOpenButtons.forEach((button) => {
     });
     demoDialog.showModal();
   });
+
+  if (button.getAttribute('role') === 'button') {
+    button.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      button.click();
+    });
+  }
 });
 
 deviceButtons.forEach((button) => {

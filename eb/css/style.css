@@ -167,7 +167,7 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
 .browser-top i { overflow: hidden; max-width: 45%; margin-inline: auto; color: #888e8e; font-size: .5rem; font-style: normal; letter-spacing: .04em; text-overflow: ellipsis; white-space: nowrap; }
 .preview-window { position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: #e9ebea; }
 .preview-window::after { position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255,255,255,.1), transparent 42%); content: ""; pointer-events: none; }
-.preview-window iframe { width: 200%; height: 200%; border: 0; pointer-events: none; transform: scale(.5); transform-origin: top left; }
+.preview-window iframe { width: 1440px; height: 900px; border: 0; pointer-events: none; transform: scale(var(--preview-scale, .5)); transform-origin: top left; }
 .project-details { display: grid; align-content: center; }
 .project-type { margin: 0 0 .8rem; color: #8d7250; font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
 .project h3 { margin: 0; font-family: var(--serif); font-size: clamp(2.5rem, 4vw, 4.2rem); font-weight: 400; letter-spacing: normal; line-height: 1; }
@@ -653,7 +653,6 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
   .gallery { margin-top: 4rem; }
   .project { padding: 3.2rem 0; gap: 2rem; }
   .project-details { padding-inline: 0; }
-  .preview-window iframe { width: 250%; height: 250%; transform: scale(.4); }
   .reserved-canvas { min-height: 360px; }
   .work-note { align-items: flex-start; }
   .work-note p { max-width: 300px; }

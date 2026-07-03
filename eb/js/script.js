@@ -12,9 +12,27 @@ const demoOpenButtons = document.querySelectorAll('[data-demo-open]');
 const deviceButtons = document.querySelectorAll('[data-device]');
 const faqItems = document.querySelectorAll('.faq-item');
 const year = document.querySelector('[data-year]');
+const previewWindows = document.querySelectorAll('.preview-window');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (year) year.textContent = new Date().getFullYear();
+
+const sizePreviewFrame = (previewWindow) => {
+  const desktopCanvasWidth = 1440;
+  const scale = previewWindow.clientWidth / desktopCanvasWidth;
+  previewWindow.style.setProperty('--preview-scale', scale.toFixed(4));
+};
+
+previewWindows.forEach(sizePreviewFrame);
+
+if ('ResizeObserver' in window) {
+  const previewObserver = new ResizeObserver((entries) => {
+    entries.forEach((entry) => sizePreviewFrame(entry.target));
+  });
+  previewWindows.forEach((previewWindow) => previewObserver.observe(previewWindow));
+} else {
+  window.addEventListener('resize', () => previewWindows.forEach(sizePreviewFrame));
+}
 
 const updateHeader = () => {
   header?.classList.toggle('scrolled', window.scrollY > 20);

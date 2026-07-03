@@ -1,6 +1,6 @@
 :root {
   --ink: #1e2327;
-  --ink-soft: #5f6669;
+  --ink-soft: #4d5558;
   --pearl: #f7f7f3;
   --cloud: #eeeff0;
   --white: #fff;
@@ -767,3 +767,32 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Primary body-copy legibility */
+.for-you-copy p:first-child,
+.work-title-row > p,
+.project-details > p,
+.process-lead,
+.step-copy > p:not(.step-label),
+.inclusions-title-row > div p,
+.inclusion-side .inclusion-summary,
+.inclusion-list p,
+.about-columns p,
+.founding-title-row > p,
+.offer-details > p:not(.offer-overline),
+.offer-reason div > p,
+.stories-copy > p:not(.stories-kicker,.stories-lead),
+.faq-intro > p:not(.section-number,.faq-kicker),
+.faq-answer p,
+.contact-lead,
+.contact-expectations li p {
+  font-size: clamp(1rem, 1.05vw, 1.08rem);
+  line-height: 1.72;
+}
+
+.for-you-copy p:first-child { color: rgba(238,241,239,.82); }
+.about-columns p,
+.stories-copy > p:not(.stories-kicker,.stories-lead) { color: rgba(238,241,239,.7); }
+.inclusion-list p,
+.contact-expectations li p { color: var(--ink-soft); }
+.footer-brand-block > p { color: rgba(238,241,239,.62); font-size: .9rem; }

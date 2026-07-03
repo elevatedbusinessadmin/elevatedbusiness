@@ -133,10 +133,14 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
 .marquee-row-two .marquee-set span { font-size: clamp(1.6rem, 3.2vw, 3.4rem); }
 .marquee-row-two .marquee-set i { width: 8px; height: 8px; border-color: rgba(223,205,167,.42); }
 .audience-marquee:hover .marquee-track { animation-play-state: paused; }
-.for-you-foot { display: grid; margin-top: 2.5rem; align-items: start; grid-template-columns: .55fr 1fr auto; gap: clamp(1.5rem, 5vw, 5rem); }
-.for-you-foot p { margin: 0; color: rgba(238,241,239,.62); font-size: .78rem; line-height: 1.65; }
-.for-you-foot p:first-child { color: var(--champagne-light); font-weight: 600; letter-spacing: .04em; }
-.for-you-foot a { padding-bottom: .45rem; border-bottom: 1px solid rgba(238,241,239,.38); color: #eef1ef; font-size: .69rem; font-weight: 600; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+.for-you-foot { position: relative; display: grid; margin-top: 0; padding: clamp(3rem, 5vw, 4.5rem) 0 .5rem; align-items: center; grid-template-columns: .42fr 1.3fr auto; gap: clamp(1.5rem, 5vw, 5rem); isolation: isolate; }
+.for-you-foot::before { position: absolute; z-index: -1; top: 5%; left: 28%; width: 58%; height: 110%; border-radius: 50%; background: radial-gradient(ellipse, rgba(197,220,226,.08), rgba(216,211,231,.035) 52%, transparent 72%); content: ""; filter: blur(20px); pointer-events: none; }
+.for-you-foot p { margin: 0; color: rgba(238,241,239,.84); }
+.for-you-foot p:first-child { color: var(--champagne-light); font-size: .59rem; font-weight: 600; letter-spacing: .14em; line-height: 1.5; text-transform: uppercase; }
+.for-you-foot p:nth-child(2) { max-width: 700px; font-family: var(--serif); font-size: clamp(1.35rem, 2vw, 1.85rem); line-height: 1.38; }
+.for-you-foot p:nth-child(2) em { color: var(--champagne-light); font-style: normal; }
+.for-you-foot a { position: relative; display: inline-flex; padding: .2rem 0 .5rem 1.5rem; border-bottom: 1px solid rgba(238,241,239,.38); color: #eef1ef; align-items: center; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+.for-you-foot a::before { position: absolute; left: .15rem; width: 8px; height: 8px; border: 1px solid var(--champagne); content: ""; transform: rotate(45deg); }
 .for-you-foot a span { margin-left: .5rem; color: var(--champagne-light); }
 
 .work { position: relative; overflow: hidden; padding: clamp(6rem, 11vw, 11rem) 0 clamp(6rem, 10vw, 9rem); background: var(--pearl); isolation: isolate; }

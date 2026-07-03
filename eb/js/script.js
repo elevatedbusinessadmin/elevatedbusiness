@@ -13,9 +13,24 @@ const deviceButtons = document.querySelectorAll('[data-device]');
 const faqItems = document.querySelectorAll('.faq-item');
 const year = document.querySelector('[data-year]');
 const previewWindows = document.querySelectorAll('.preview-window');
+const motionCards = document.querySelectorAll('.reassurance-note, .effort-card');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (year) year.textContent = new Date().getFullYear();
+
+if (!reduceMotion && 'IntersectionObserver' in window) {
+  motionCards.forEach((card) => card.classList.add('motion-ready'));
+
+  const motionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      motionObserver.unobserve(entry.target);
+    });
+  }, { threshold: .28, rootMargin: '0px 0px -8% 0px' });
+
+  motionCards.forEach((card) => motionObserver.observe(card));
+}
 
 const sizePreviewFrame = (previewWindow) => {
   const desktopCanvasWidth = 1440;

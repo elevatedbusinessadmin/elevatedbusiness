@@ -14,6 +14,8 @@ const faqItems = document.querySelectorAll('.faq-item');
 const year = document.querySelector('[data-year]');
 const previewWindows = document.querySelectorAll('.preview-window');
 const motionCards = document.querySelectorAll('.reassurance-note, .effort-card');
+const sellingPointsSection = document.querySelector('[data-selling-points]');
+const sellingPoints = [...document.querySelectorAll('[data-selling-point]')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (year) year.textContent = new Date().getFullYear();
@@ -52,6 +54,33 @@ if ('ResizeObserver' in window) {
 const updateHeader = () => {
   header?.classList.toggle('scrolled', window.scrollY > 20);
 };
+
+let sellingPointsTicking = false;
+
+const updateSellingPoints = () => {
+  if (!sellingPointsSection || reduceMotion) return;
+
+  const rect = sellingPointsSection.getBoundingClientRect();
+  const scrollDistance = Math.max(sellingPointsSection.offsetHeight - window.innerHeight, 1);
+  const progress = Math.min(Math.max(-rect.top / scrollDistance, 0), 1);
+  const thresholds = [.12, .4, .68];
+
+  sellingPoints.forEach((point, index) => {
+    point.classList.toggle('is-revealed', progress >= thresholds[index]);
+  });
+
+  sellingPointsTicking = false;
+};
+
+if (reduceMotion) {
+  sellingPoints.forEach((point) => point.classList.add('is-revealed'));
+} else if (sellingPointsSection) {
+  window.addEventListener('scroll', () => {
+    if (sellingPointsTicking) return;
+    window.requestAnimationFrame(updateSellingPoints);
+    sellingPointsTicking = true;
+  }, { passive: true });
+}
 
 const closeMenu = () => {
   navToggle?.setAttribute('aria-expanded', 'false');
@@ -148,6 +177,8 @@ if (!reduceMotion && diamond && hero) {
 window.addEventListener('scroll', updateHeader, { passive: true });
 window.addEventListener('resize', () => {
   if (window.innerWidth > 980) closeMenu();
+  updateSellingPoints();
 });
 
 updateHeader();
+updateSellingPoints();

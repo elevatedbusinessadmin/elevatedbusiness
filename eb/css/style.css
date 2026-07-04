@@ -521,7 +521,8 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
 .footer-brand-mark i { background: #edf0ee; }
 .footer-brand-block > p { max-width: 430px; margin: 1.5rem 0 0; color: rgba(238,241,239,.48); font-size: .72rem; line-height: 1.7; }
 .footer-status { display: inline-flex; margin-top: 1.7rem; align-items: center; gap: .6rem; color: var(--champagne-light); font-size: .53rem; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
-.footer-status i { width: 6px; height: 6px; border-radius: 50%; background: #91a687; box-shadow: 0 0 0 4px rgba(145,166,135,.1); }
+.footer-status i { position: relative; display: block; width: 6px; height: 6px; border-radius: 50%; background: #91a687; box-shadow: 0 0 0 4px rgba(145,166,135,.1); animation: availabilityGlow 2.8s infinite ease-in-out; }
+.footer-status i::after { position: absolute; inset: -5px; border: 1px solid rgba(145,166,135,.36); border-radius: 50%; content: ""; animation: availabilityRing 2.8s infinite ease-out; }
 .footer-nav, .footer-contact, .footer-social { display: flex; align-items: flex-start; flex-direction: column; gap: .8rem; }
 .footer-nav > p, .footer-contact > p, .footer-social > p { margin: 0 0 .5rem; color: var(--champagne-light); font-size: .54rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
 .footer-nav a, .footer-contact a, .footer-social a { color: rgba(238,241,239,.65); font-size: .68rem; line-height: 1.5; text-decoration: none; transition: color .2s; }

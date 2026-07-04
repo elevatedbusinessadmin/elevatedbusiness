@@ -377,16 +377,15 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
 .rate-lock strong { display: block; font-family: var(--serif); font-size: 1.25rem; font-weight: 400; line-height: 1.25; }
 .rate-lock div > span { display: block; margin-top: .45rem; color: #6c7375; font-size: .63rem; line-height: 1.55; }
 .offer-button { width: max-content; margin-top: 2rem; }
-.selling-points-scroll { position: relative; height: 230vh; background: #eeece7; }
-.selling-points-sticky { position: sticky; top: calc(50vh - 150px); display: grid; min-height: 300px; overflow: hidden; border-top: 1px solid rgba(238,241,239,.12); border-bottom: 1px solid rgba(238,241,239,.12); background: #20272b; color: #eef1ef; place-items: center; isolation: isolate; }
-.selling-points-sticky::before, .selling-points-sticky::after { position: absolute; z-index: -1; right: 12%; width: 30rem; height: 30rem; border: 1px solid rgba(223,205,167,.1); content: ""; transform: rotate(45deg); }
-.selling-points-sticky::before { top: -26rem; }
-.selling-points-sticky::after { bottom: -27rem; }
-.selling-points-track { display: flex; width: min(1450px, calc(100% - 64px)); margin-inline: auto; align-items: center; justify-content: center; gap: clamp(1.3rem, 3vw, 3.5rem); }
-.selling-point { margin: 0; color: rgba(238,241,239,.94); font-family: var(--serif); font-size: clamp(1.8rem, 3.2vw, 3.8rem); font-weight: 400; line-height: 1.05; text-align: center; opacity: 0; filter: blur(7px); transform: translateY(24px); transition: opacity .55s ease, filter .7s ease, transform .7s cubic-bezier(.22,.61,.36,1); }
-.selling-point.is-revealed { opacity: 1; filter: blur(0); transform: translateY(0); }
-.selling-point-diamond { width: 11px; height: 11px; flex: 0 0 11px; border: 1px solid rgba(223,205,167,.72); opacity: 0; transform: rotate(45deg) scale(.45); transition: opacity .45s ease, transform .6s ease; }
-.selling-point.is-revealed + .selling-point-diamond { opacity: 1; transform: rotate(45deg) scale(1); }
+.selling-points-marquee { position: relative; overflow: hidden; padding: clamp(3rem, 5vw, 4.5rem) 0; border-top: 1px solid rgba(238,241,239,.12); border-bottom: 1px solid rgba(238,241,239,.12); background: #20272b; color: #eef1ef; isolation: isolate; }
+.selling-points-marquee::before, .selling-points-marquee::after { position: absolute; z-index: -1; right: 12%; width: 30rem; height: 30rem; border: 1px solid rgba(223,205,167,.1); content: ""; transform: rotate(45deg); }
+.selling-points-marquee::before { top: -27rem; }
+.selling-points-marquee::after { bottom: -28rem; }
+.selling-points-track { display: flex; width: max-content; animation: marqueeLeft 34s linear infinite; will-change: transform; }
+.selling-points-set { display: flex; align-items: center; flex-shrink: 0; }
+.selling-points-set span { padding-inline: clamp(2rem, 4vw, 5rem); font-family: var(--serif); font-size: clamp(2rem, 3.4vw, 4rem); font-weight: 400; line-height: 1; white-space: nowrap; }
+.selling-points-set i { display: block; width: 11px; height: 11px; margin-inline: .25rem; border: 1px solid rgba(223,205,167,.72); transform: rotate(45deg); }
+.selling-points-marquee:hover .selling-points-track { animation-play-state: paused; }
 
 .faq { position: relative; overflow: hidden; padding: clamp(6rem, 11vw, 11rem) 0 clamp(6rem, 10vw, 9rem); background:
     linear-gradient(135deg, rgba(255,255,255,.67), transparent 45%),
@@ -576,8 +575,6 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
   .monthly-price { justify-content: center; }
   .rate-lock { text-align: left; }
   .offer-button { margin-right: auto; margin-left: auto; }
-  .selling-points-track { width: min(100% - 40px, 800px); flex-wrap: wrap; }
-  .selling-point { flex: 0 1 auto; }
   .faq-layout { width: min(100% - 40px, 800px); grid-template-columns: 1fr; gap: 5rem; }
   .faq-intro { position: static; }
   .faq-intro > p:not(.section-number,.faq-kicker), .faq-aside { max-width: 580px; }
@@ -682,11 +679,9 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
   .zero-fee { font-size: clamp(8.5rem, 45vw, 12rem); }
   .offer-card-heading h3 { font-size: clamp(3rem, 13vw, 4.5rem); }
   .rate-lock { padding: 1.2rem 1rem; }
-  .selling-points-scroll { height: 250vh; }
-  .selling-points-sticky { top: calc(50vh - 175px); min-height: 350px; }
-  .selling-points-track { width: calc(100% - 34px); flex-direction: column; gap: 1.15rem; }
-  .selling-point { font-size: clamp(1.8rem, 8vw, 2.7rem); }
-  .selling-point-diamond { width: 8px; height: 8px; flex-basis: 8px; }
+  .selling-points-marquee { padding: 2.75rem 0; }
+  .selling-points-set span { padding-inline: 1.6rem; font-size: clamp(1.9rem, 8vw, 2.8rem); }
+  .selling-points-set i { width: 8px; height: 8px; }
   .faq { padding: 5.5rem 0 5rem; }
   .faq-layout { width: calc(100% - 34px); gap: 4rem; }
   .faq-kicker { margin-top: 2.8rem; }
@@ -724,10 +719,7 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .selling-points-scroll { height: auto; }
-  .selling-points-sticky { position: relative; top: auto; }
-  .selling-point, .selling-point-diamond { opacity: 1; filter: none; transform: none; }
-  .selling-point-diamond { transform: rotate(45deg); }
+  .selling-points-track { animation: none; transform: none; }
 }
 
 /* Primary body-copy legibility */

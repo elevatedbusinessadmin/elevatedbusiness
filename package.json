@@ -1,0 +1,28 @@
+{
+  "name": "elevatedbusiness",
+  "version": "1.0.0",
+  "description": "Custom-built websites and thoughtful ongoing care for UK solopreneurs and small service businesses",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "npm run build:speed-insights",
+    "build:speed-insights": "esbuild js/speed-insights.js --bundle --outfile=js/speed-insights.bundle.js --format=iife --minify",
+    "lint": "echo 'No linting configured'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elevatedbusinessadmin/elevatedbusiness.git"
+  },
+  "keywords": [
+    "website",
+    "business"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}

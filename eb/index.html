@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/eb/css/style.css">
+  <script src="https://forminit.com/sdk/v1/forminit.js" defer></script>
   <script src="/eb/js/script.js" defer></script>
 </head>
 <body>
@@ -693,7 +694,60 @@
           </div>
         </div>
 
-        <div class="contact-form-wrap contact-forminit-slot"></div>
+        <div class="contact-form-wrap contact-forminit-slot">
+          <div class="form-heading">
+            <span class="form-gem" aria-hidden="true"></span>
+            <div>
+              <p>A few useful details</p>
+              <h3>Begin with the messy version.</h3>
+            </div>
+          </div>
+
+          <form class="contact-form" data-forminit-contact novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="forminit-contact-name">Your name <span aria-hidden="true">*</span></label>
+                <input id="forminit-contact-name" name="fi-sender-fullName" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="forminit-contact-email">Email address <span aria-hidden="true">*</span></label>
+                <input id="forminit-contact-email" name="fi-sender-email" type="email" autocomplete="email" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="forminit-contact-phone">Phone number</label>
+                <input id="forminit-contact-phone" name="fi-sender-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+44 7700 900000">
+              </div>
+              <div class="field">
+                <label for="forminit-contact-business">Business name</label>
+                <input id="forminit-contact-business" name="fi-sender-company" type="text" autocomplete="organization">
+              </div>
+            </div>
+
+            <fieldset class="website-stage">
+              <legend>Where are you starting from?</legend>
+              <div class="stage-options">
+                <label><input type="radio" name="fi-radio-websiteStage" value="No website yet"><span>No website yet</span></label>
+                <label><input type="radio" name="fi-radio-websiteStage" value="I've outgrown mine"><span>I’ve outgrown mine</span></label>
+                <label><input type="radio" name="fi-radio-websiteStage" value="It needs a refresh"><span>It needs a refresh</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="forminit-contact-message">What would you like your website to change?</label>
+              <textarea id="forminit-contact-message" name="fi-text-message" rows="5" placeholder="A few sentences is plenty. Tell me what you do, what feels off now, or what you’d like the new site to make possible."></textarea>
+            </div>
+
+            <p class="form-status" data-forminit-status role="status" aria-live="polite"></p>
+
+            <div class="form-submit-row">
+              <p id="forminit-form-note">By sending this form, you’re simply starting a conversation—there’s no obligation attached.</p>
+              <button class="button button-primary form-submit" type="submit" aria-describedby="forminit-form-note">Send the messy version <span aria-hidden="true">↗</span></button>
+            </div>
+          </form>
+        </div>
       </div>
 
       <div class="contact-closing">

@@ -14,9 +14,84 @@ const faqItems = document.querySelectorAll('.faq-item');
 const year = document.querySelector('[data-year]');
 const previewWindows = document.querySelectorAll('.preview-window');
 const motionCards = document.querySelectorAll('.reassurance-note, .effort-card');
+const forminitContactForm = document.querySelector('[data-forminit-contact]');
+const forminitStatus = document.querySelector('[data-forminit-status]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (year) year.textContent = new Date().getFullYear();
+
+if (forminitContactForm && forminitStatus) {
+  const submitButton = forminitContactForm.querySelector('button[type="submit"]');
+  const phoneInput = forminitContactForm.querySelector('[name="fi-sender-phone"]');
+  const buttonContent = submitButton?.innerHTML || '';
+
+  forminitContactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!forminitContactForm.checkValidity()) {
+      forminitContactForm.reportValidity();
+      return;
+    }
+
+    if (!window.Forminit) {
+      forminitStatus.textContent = 'The form could not load. Please refresh the page and try again.';
+      forminitStatus.className = 'form-status is-error';
+      return;
+    }
+
+    const formData = new FormData(forminitContactForm);
+    const phone = phoneInput?.value.trim() || '';
+
+    if (phone) {
+      let normalizedPhone = phone.replace(/[^\d+]/g, '');
+      if (normalizedPhone.startsWith('00')) normalizedPhone = `+${normalizedPhone.slice(2)}`;
+      if (normalizedPhone.startsWith('0')) normalizedPhone = `+44${normalizedPhone.slice(1)}`;
+      if (normalizedPhone.startsWith('+440')) normalizedPhone = `+44${normalizedPhone.slice(4)}`;
+
+      if (!/^\+[1-9]\d{7,14}$/.test(normalizedPhone)) {
+        forminitStatus.textContent = 'Please enter the phone number with its country code, for example +44 7700 900000.';
+        forminitStatus.className = 'form-status is-error';
+        phoneInput?.focus();
+        return;
+      }
+
+      formData.set('fi-sender-phone', normalizedPhone);
+    } else {
+      formData.delete('fi-sender-phone');
+    }
+
+    forminitStatus.textContent = 'Sending your message…';
+    forminitStatus.className = 'form-status is-sending';
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
+    }
+
+    try {
+      const forminit = new window.Forminit();
+      const { error } = await forminit.submit('oqlfobusouy', formData);
+
+      if (error) {
+        forminitStatus.textContent = error.message || 'Your message could not be sent. Please try again.';
+        forminitStatus.className = 'form-status is-error';
+        return;
+      }
+
+      forminitStatus.textContent = 'Thank you—your message has been sent. I’ll be in touch soon.';
+      forminitStatus.className = 'form-status is-success';
+      forminitContactForm.reset();
+    } catch (error) {
+      forminitStatus.textContent = 'Your message could not be sent. Please check your connection and try again.';
+      forminitStatus.className = 'form-status is-error';
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = buttonContent;
+      }
+    }
+  });
+}
 
 if (!reduceMotion && 'IntersectionObserver' in window) {
   motionCards.forEach((card) => card.classList.add('motion-ready'));

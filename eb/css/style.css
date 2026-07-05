@@ -442,6 +442,7 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
 .contact-expectations li p { margin: 0; color: #697072; font-size: .7rem; line-height: 1.6; }
 .contact-expectations li strong { display: block; margin-bottom: .18rem; color: var(--ink); font-size: .75rem; font-weight: 600; }
 .contact-form-wrap { position: relative; padding: clamp(2rem, 4vw, 3.5rem); border: 1px solid rgba(30,35,39,.14); background: rgba(255,255,255,.55); box-shadow: 0 35px 80px rgba(64,73,76,.13), inset 0 0 45px rgba(255,255,255,.45); backdrop-filter: blur(18px); }
+.contact-forminit-slot { min-height: 760px; }
 .contact-form-wrap::before { position: absolute; inset: 10px; border: 1px solid rgba(142,113,74,.12); content: ""; pointer-events: none; }
 .form-heading { position: relative; z-index: 1; display: grid; padding-bottom: 2rem; border-bottom: 1px solid var(--line); align-items: center; grid-template-columns: 36px 1fr; gap: 1.2rem; }
 .form-gem { width: 28px; height: 28px; border: 1px solid #9b7c52; transform: rotate(45deg); }
@@ -692,6 +693,7 @@ h1 em::after { position: absolute; z-index: -1; right: .05em; bottom: .02em; lef
   .contact-layout { margin-top: 3rem; gap: 4rem; }
   .contact h2 { font-size: clamp(3.8rem, 17.5vw, 5.4rem); }
   .contact-form-wrap { width: calc(100% + 12px); margin-left: -6px; padding: 2rem 1.3rem; }
+  .contact-forminit-slot { min-height: 640px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
   .stage-options { grid-template-columns: 1fr; }
   .stage-options span { min-height: 42px; }

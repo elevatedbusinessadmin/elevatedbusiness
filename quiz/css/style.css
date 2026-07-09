@@ -117,7 +117,8 @@ h2 { margin: 0; font-family: var(--serif); font-size: clamp(3.5rem, 6vw, 6.4rem)
 .consent-field input:checked + .custom-check::after { position: absolute; top: 3px; left: 6px; width: 4px; height: 8px; border-right: 1px solid white; border-bottom: 1px solid white; content: ""; transform: rotate(45deg); }
 .consent-field input:focus-visible + .custom-check { outline: 2px solid var(--champagne); outline-offset: 3px; }
 .form-note { margin: 1.2rem 0 0; color: #7a8081; font-size: .6rem; line-height: 1.55; }
-.form-status { min-height: 1.3em; margin: .8rem 0 0; color: #9a493f; font-size: .7rem; }
+.form-status { min-height: 1.3em; margin: .8rem 0 0; color: #9a493f; font-size: .7rem; line-height: 1.55; }
+.form-status a { display: inline-flex; margin-top: .55rem; border-bottom: 1px solid currentColor; color: #806746; font-weight: 600; letter-spacing: .04em; text-decoration: none; text-transform: uppercase; }
 .access-submit { width: 100%; margin-top: 1rem; }
 
 .quiz-view { position: relative; min-height: calc(100svh - 88px); overflow: hidden; padding: clamp(2rem, 4vw, 4rem) 0; background: linear-gradient(135deg, rgba(255,255,255,.7), transparent 45%), linear-gradient(180deg, #e8eef0, #f3f0ed); isolation: isolate; }

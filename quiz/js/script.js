@@ -334,6 +334,7 @@ const nameInput = document.querySelector('#scorecard-name');
 const emailInput = document.querySelector('#scorecard-email');
 const consentInput = document.querySelector('#scorecard-consent');
 const accessSubmit = accessForm?.querySelector('button[type="submit"]');
+const accessSubmitLabel = accessSubmit?.innerHTML;
 const questionForm = document.querySelector('[data-question-form]');
 const questionText = document.querySelector('[data-question-text]');
 const answerList = document.querySelector('[data-answer-list]');
@@ -360,6 +361,7 @@ document.querySelectorAll('[data-year]').forEach((node) => {
 
 const syncAccessButton = () => {
   if (!accessSubmit) return;
+  if (accessSubmit.dataset.loading === 'true') return;
   const ready = Boolean(nameInput.value.trim()) && emailInput.validity.valid && consentInput.checked;
   accessSubmit.disabled = !ready;
 };
@@ -377,7 +379,33 @@ const showQuiz = () => {
   renderQuestion();
 };
 
-accessForm?.addEventListener('submit', (event) => {
+const showAccessError = () => {
+  accessStatus.innerHTML = `
+    <strong>Oops... this isn't working right now.</strong><br>
+    My scorecard gremlins appear to be having a tiny moment. Please email me and I’ll send you the PDF version instead.<br>
+    <a href="mailto:rebecca@elevatedbusiness.co.uk?subject=Business%20Elevation%20Scorecard%20PDF">Email Rebecca for the PDF</a>
+  `;
+};
+
+const subscribeToScorecard = async () => {
+  const response = await fetch('/api/scorecard-subscribe', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      consent: consentInput.checked
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error('Scorecard signup failed.');
+  }
+};
+
+accessForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (!accessForm.checkValidity()) {
     accessForm.reportValidity();
@@ -387,7 +415,20 @@ accessForm?.addEventListener('submit', (event) => {
   state.name = nameInput.value.trim();
   state.email = emailInput.value.trim();
   accessStatus.textContent = '';
-  showQuiz();
+  accessSubmit.dataset.loading = 'true';
+  accessSubmit.disabled = true;
+  accessSubmit.innerHTML = 'Sending <span aria-hidden="true">...</span>';
+
+  try {
+    await subscribeToScorecard();
+    accessStatus.textContent = '';
+    showQuiz();
+  } catch (error) {
+    showAccessError();
+    accessSubmit.dataset.loading = 'false';
+    accessSubmit.innerHTML = accessSubmitLabel;
+    syncAccessButton();
+  }
 });
 
 const renderQuestion = () => {

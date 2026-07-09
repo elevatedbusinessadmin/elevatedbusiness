@@ -525,6 +525,22 @@ const updateMailerLiteResults = (payload) => {
   }).catch(() => {});
 };
 
+const logScorecardResponse = (payload) => {
+  fetch('/api/scorecard-log', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    keepalive: true,
+    body: JSON.stringify(payload)
+  }).catch(() => {});
+};
+
+const selectedAnswerText = (index) => {
+  const score = state.answers[index];
+  return questions[index].answers[score] || '';
+};
+
 const renderCategoryResult = (category, score, isPriority) => {
   const band = categoryBand(score);
   const content = categoryResults[category][band];
@@ -590,6 +606,33 @@ const showResults = () => {
     credibilityResult: bandLabel(bands.Credibility),
     profitabilityResult: bandLabel(bands.Profitability),
     priority: priorityLabel(priorities)
+  });
+
+  logScorecardResponse({
+    submitted_at: new Date().toISOString(),
+    first_name: state.name,
+    email: state.email,
+    overall_score: total,
+    overall_result: overall.name,
+    priority_area: priorityLabel(priorities),
+    visibility_score: scores.Visibility,
+    visibility_result: bandLabel(bands.Visibility),
+    credibility_score: scores.Credibility,
+    credibility_result: bandLabel(bands.Credibility),
+    profitability_score: scores.Profitability,
+    profitability_result: bandLabel(bands.Profitability),
+    q1_answer: selectedAnswerText(0),
+    q2_answer: selectedAnswerText(1),
+    q3_answer: selectedAnswerText(2),
+    q4_answer: selectedAnswerText(3),
+    q5_answer: selectedAnswerText(4),
+    q6_answer: selectedAnswerText(5),
+    q7_answer: selectedAnswerText(6),
+    q8_answer: selectedAnswerText(7),
+    q9_answer: selectedAnswerText(8),
+    q10_answer: selectedAnswerText(9),
+    q11_answer: selectedAnswerText(10),
+    q12_answer: selectedAnswerText(11)
   });
 
   quizView.hidden = true;

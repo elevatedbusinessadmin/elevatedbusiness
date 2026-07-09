@@ -484,7 +484,6 @@ const renderCategoryResult = (category, score, isPriority) => {
           <p>${band} range ${isPriority ? '· Priority area' : ''}</p>
           <h3>${category}</h3>
         </div>
-        <div class="category-score"><strong>${score}</strong><span>/ 16</span></div>
       </header>
       <div class="category-analysis">
         <section><h4>What your score indicates</h4><p>${content.indication}</p></section>
@@ -515,7 +514,6 @@ const showResults = () => {
 
   document.querySelector('[data-results-greeting]').textContent = `${state.name}, your result is`;
   document.querySelector('[data-result-name]').textContent = overall.name;
-  document.querySelector('[data-result-score]').textContent = `${total}/48`;
   document.querySelector('[data-overall-assessment]').innerHTML = paragraphMarkup(overall.paragraphs);
 
   categoryResultsContainer.innerHTML = categories

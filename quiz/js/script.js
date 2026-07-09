@@ -507,6 +507,23 @@ const categoryBand = (score) => {
 };
 
 const paragraphMarkup = (paragraphs) => paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('');
+const bandLabel = (band) => band.charAt(0).toUpperCase() + band.slice(1);
+
+const priorityLabel = (priorities) => {
+  if (priorities.length === 3) return 'Balanced';
+  return priorities.join(' + ');
+};
+
+const updateMailerLiteResults = (payload) => {
+  fetch('/api/scorecard-results', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    keepalive: true,
+    body: JSON.stringify(payload)
+  }).catch(() => {});
+};
 
 const renderCategoryResult = (category, score, isPriority) => {
   const band = categoryBand(score);
@@ -552,6 +569,7 @@ const showResults = () => {
   const priority = priorityResults[priorityKey];
   const ctaKey = priorities.length === 3 ? 'all' : priorities.length === 2 ? 'tie' : priorities[0];
   const cta = ctaResults[ctaKey];
+  const bands = Object.fromEntries(categories.map((category) => [category, categoryBand(scores[category])]));
 
   document.querySelector('[data-results-greeting]').textContent = `${state.name}, your result is`;
   document.querySelector('[data-result-name]').textContent = overall.name;
@@ -563,6 +581,16 @@ const showResults = () => {
 
   document.querySelector('[data-priority-content]').innerHTML = `<h2>${priority[0]}</h2>${paragraphMarkup(priority[1])}`;
   document.querySelector('[data-cta-content]').innerHTML = `<p class="cta-kicker">A more strategic website</p><h2>${cta[0]}</h2>${paragraphMarkup(cta[1])}`;
+
+  updateMailerLiteResults({
+    email: state.email,
+    totalScore: total,
+    overallResult: overall.name,
+    visibilityResult: bandLabel(bands.Visibility),
+    credibilityResult: bandLabel(bands.Credibility),
+    profitabilityResult: bandLabel(bands.Profitability),
+    priority: priorityLabel(priorities)
+  });
 
   quizView.hidden = true;
   resultsView.hidden = false;

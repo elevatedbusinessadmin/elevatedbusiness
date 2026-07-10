@@ -19,7 +19,7 @@ const forminitStatus = document.querySelector('[data-forminit-status]');
 const quizPopup = document.querySelector('[data-quiz-popup]');
 const quizPopupClose = document.querySelector('[data-quiz-popup-close]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const quizPopupEnabled = false;
+const quizPopupEnabled = true;
 const quizPopupDelay = 12000;
 
 if (year) year.textContent = new Date().getFullYear();

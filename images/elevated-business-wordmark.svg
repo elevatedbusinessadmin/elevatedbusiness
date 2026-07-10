@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 150" role="img" aria-labelledby="title desc">
+  <title id="title">Elevated Business</title>
+  <desc id="desc">Elevated Business company name set in the Italiana title font.</desc>
+  <style>
+    .wordmark {
+      fill: #1e2327;
+      font-family: "Italiana", "Times New Roman", serif;
+      font-size: 92px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+  </style>
+  <text class="wordmark" x="410" y="96" text-anchor="middle">Elevated Business</text>
+</svg>

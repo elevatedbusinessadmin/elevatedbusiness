@@ -16,7 +16,11 @@ const previewWindows = document.querySelectorAll('.preview-window');
 const motionCards = document.querySelectorAll('.reassurance-note, .effort-card');
 const forminitContactForm = document.querySelector('[data-forminit-contact]');
 const forminitStatus = document.querySelector('[data-forminit-status]');
+const quizPopup = document.querySelector('[data-quiz-popup]');
+const quizPopupClose = document.querySelector('[data-quiz-popup-close]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const quizPopupEnabled = false;
+const quizPopupDelay = 12000;
 
 if (year) year.textContent = new Date().getFullYear();
 
@@ -106,6 +110,36 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
 
   motionCards.forEach((card) => motionObserver.observe(card));
 }
+
+const closeQuizPopup = () => {
+  if (!quizPopup || quizPopup.hidden) return;
+  quizPopup.hidden = true;
+  quizPopup.classList.remove('is-visible');
+  document.body.classList.remove('nav-open');
+  window.localStorage?.setItem('elevatedQuizPopupClosed', 'true');
+};
+
+const openQuizPopup = () => {
+  if (!quizPopup) return;
+  if (window.localStorage?.getItem('elevatedQuizPopupClosed') === 'true') return;
+  quizPopup.hidden = false;
+  document.body.classList.add('nav-open');
+  window.requestAnimationFrame(() => quizPopup.classList.add('is-visible'));
+  quizPopupClose?.focus({ preventScroll: true });
+};
+
+if (quizPopupEnabled && quizPopup) {
+  window.setTimeout(openQuizPopup, quizPopupDelay);
+}
+
+quizPopupClose?.addEventListener('click', closeQuizPopup);
+quizPopup?.addEventListener('click', (event) => {
+  if (event.target === quizPopup) closeQuizPopup();
+});
+quizPopup?.querySelector('a')?.addEventListener('click', closeQuizPopup);
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeQuizPopup();
+});
 
 const sizePreviewFrame = (previewWindow) => {
   const desktopCanvasWidth = 1440;

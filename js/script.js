@@ -116,12 +116,12 @@ const closeQuizPopup = () => {
   quizPopup.hidden = true;
   quizPopup.classList.remove('is-visible');
   document.body.classList.remove('nav-open');
-  window.localStorage?.setItem('elevatedQuizPopupClosed', 'true');
+  window.sessionStorage?.setItem('elevatedQuizPopupClosed', 'true');
 };
 
 const openQuizPopup = () => {
   if (!quizPopup) return;
-  if (window.localStorage?.getItem('elevatedQuizPopupClosed') === 'true') return;
+  if (window.sessionStorage?.getItem('elevatedQuizPopupClosed') === 'true') return;
   quizPopup.hidden = false;
   document.body.classList.add('nav-open');
   window.requestAnimationFrame(() => quizPopup.classList.add('is-visible'));

@@ -82,7 +82,7 @@
 }
 
 .registered-copy h1 {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(3.35rem, 7vw, 6.45rem);

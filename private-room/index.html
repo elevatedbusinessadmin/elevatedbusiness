@@ -12,18 +12,20 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Register for From Rollercoaster Revenue to Predictable Profit with Elevated Business.">
+  <meta name="description" content="Private room for the From Rollercoaster Revenue to Predictable Profit webinar with Elevated Business.">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#f7f7f3">
   <title>From Rollercoaster Revenue to Predictable Profit | Elevated Business</title>
-  <link rel="canonical" href="https://elevatedbusiness.co.uk/webinar/">
+  <link rel="canonical" href="https://elevatedbusiness.co.uk/private-room/">
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/webinar/css/style.css">
+  <link rel="stylesheet" href="/private-room/css/style.css">
   <script src="/js/script.js" defer></script>
+  <script src="/private-room/js/script.js" defer></script>
 </head>
 <body class="webinar-page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -61,7 +63,7 @@
 
       <div class="webinar-shell">
         <div class="webinar-copy">
-          <p class="webinar-eyebrow"><span></span> Free live webinar</p>
+          <p class="webinar-eyebrow"><span></span> Private webinar room</p>
           <h1>
             <span>From Rollercoaster</span>
             <span>Revenue</span>
@@ -81,9 +83,52 @@
           </div>
         </div>
 
-        <aside class="webinar-gate-card webinar-placeholder-card">
+        <aside class="webinar-gate-card" data-webinar-gate>
           <div class="webinar-gate-sheen" aria-hidden="true"></div>
+          <p class="webinar-card-kicker">Enter the room</p>
+          <h2>Pop in your details first.</h2>
+          <p>This helps me keep the room private and gives us a simple attendance trail before the live session starts.</p>
+
+          <form class="webinar-gate-form" data-webinar-form>
+            <label for="webinar-name">Name</label>
+            <input id="webinar-name" name="name" type="text" autocomplete="name" required>
+
+            <label for="webinar-email">Email address</label>
+            <input id="webinar-email" name="email" type="email" autocomplete="email" required>
+
+            <label for="webinar-password">Room password</label>
+            <input id="webinar-password" name="password" type="password" autocomplete="current-password" required>
+
+            <button class="button button-primary" type="submit">Enter webinar room <span aria-hidden="true">→</span></button>
+            <p class="webinar-form-note">If you have any trouble getting in, email <a href="mailto:rebecca@elevatedbusiness.co.uk">rebecca@elevatedbusiness.co.uk</a>.</p>
+            <p class="webinar-form-status" data-webinar-status role="status" aria-live="polite"></p>
+          </form>
         </aside>
+      </div>
+    </section>
+
+    <section class="webinar-room" data-webinar-room hidden>
+      <div class="webinar-room-shell">
+        <div class="webinar-room-heading">
+          <p class="webinar-eyebrow"><span></span> You&rsquo;re in</p>
+          <h2>The room will open here.</h2>
+          <p>If Rebecca has not started the broadcast yet, keep this page open and the stream should appear when the room begins. If the video is sulking, refresh once.</p>
+        </div>
+
+        <div class="webinar-frame-card">
+          <iframe
+            title="From Rollercoaster Revenue to Predictable Profit webinar room"
+            data-webinar-frame
+            data-room-src="https://elevatedbusinessadmin-livestream-1557.app.100ms.live/meeting/gxe-byyc-tvt"
+            allow="camera; microphone; display-capture; autoplay; encrypted-media; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="webinar-room-actions">
+          <a class="button button-primary" data-webinar-backup href="https://elevatedbusinessadmin-livestream-1557.app.100ms.live/meeting/gxe-byyc-tvt" target="_blank" rel="noopener noreferrer">Open room in a new tab <span aria-hidden="true">↗</span></a>
+          <p>Backup link only — the best experience should be right here on this page.</p>
+        </div>
       </div>
     </section>
   </main>

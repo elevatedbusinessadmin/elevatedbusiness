@@ -150,16 +150,11 @@
 .webinar-gate-card {
   position: relative;
   overflow: hidden;
-  min-height: clamp(360px, 42vw, 560px);
   padding: clamp(2rem, 4vw, 3.2rem);
   border: 1px solid rgba(255, 255, 255, .78);
   background: linear-gradient(145deg, rgba(255, 255, 251, .94), rgba(241, 236, 226, .9) 48%, rgba(239, 247, 248, .92));
   box-shadow: 0 35px 90px rgba(30, 35, 39, .16), inset 0 0 50px rgba(255, 255, 255, .72);
   isolation: isolate;
-}
-
-.webinar-placeholder-card {
-  transform: translateY(1rem);
 }
 
 .webinar-gate-card::before {
@@ -338,11 +333,6 @@
 
   .webinar-copy h1 {
     font-size: clamp(3.55rem, 12vw, 5.8rem);
-  }
-
-  .webinar-placeholder-card {
-    max-width: 620px;
-    transform: none;
   }
 }
 

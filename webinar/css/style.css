@@ -110,10 +110,23 @@
   line-height: 1.72;
 }
 
+.webinar-session-label {
+  display: inline-flex;
+  margin: 2rem 0 0;
+  border: 1px solid rgba(142, 113, 74, .26);
+  background: rgba(255, 255, 255, .5);
+  color: var(--ink);
+  font-size: .64rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  padding: .62rem .78rem;
+  text-transform: uppercase;
+}
+
 .webinar-meta {
   display: grid;
   max-width: 690px;
-  margin-top: 2.2rem;
+  margin-top: .9rem;
   border: 1px solid rgba(30, 35, 39, .1);
   background: rgba(255, 255, 255, .42);
   box-shadow: 0 26px 60px rgba(30, 35, 39, .08);

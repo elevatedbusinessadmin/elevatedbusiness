@@ -120,8 +120,21 @@
   line-height: 1.7;
 }
 
-.registered-intro {
+.registered-session-label {
+  display: inline-flex;
   margin: 1.7rem 0 0;
+  border: 1px solid rgba(142, 113, 74, .26);
+  background: rgba(255, 255, 255, .5);
+  color: var(--ink);
+  font-size: .64rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  padding: .62rem .78rem;
+  text-transform: uppercase;
+}
+
+.registered-intro {
+  margin: .9rem 0 0;
 }
 
 .registered-note {

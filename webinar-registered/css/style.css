@@ -1,5 +1,6 @@
 .registered-page {
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 9% 18%, rgba(223, 205, 167, .35), transparent 26rem),
     radial-gradient(circle at 88% 12%, rgba(205, 226, 232, .42), transparent 28rem),
@@ -56,6 +57,7 @@
 
 .registered-shell {
   display: grid;
+  box-sizing: border-box;
   width: min(1160px, calc(100% - 48px));
   margin-inline: auto;
   align-items: center;
@@ -94,6 +96,10 @@
 .registered-copy h1 span,
 .registered-copy h1 em {
   display: block;
+}
+
+.registered-copy h1 em span {
+  display: inline;
 }
 
 .registered-title-kicker {
@@ -162,6 +168,9 @@
 
 .registered-gift-card {
   position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   overflow: hidden;
   padding: clamp(2rem, 4vw, 3.15rem);
   border: 1px solid rgba(255, 255, 255, .78);
@@ -244,7 +253,27 @@
   }
 
   .registered-shell {
-    width: min(100% - 34px, 1120px);
+    width: calc(100% - 34px);
+    max-width: 1120px;
+  }
+
+  .registered-copy,
+  .registered-copy h1,
+  .registered-actions,
+  .registered-gift-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .registered-copy h1 {
+    max-width: 100%;
+    font-size: clamp(3rem, 13vw, 4.25rem);
+    letter-spacing: -.012em;
+    overflow-wrap: anywhere;
+  }
+
+  .registered-copy h1 em span {
+    display: block;
   }
 
   .registered-actions {
@@ -253,10 +282,23 @@
   }
 
   .registered-actions .button {
+    box-sizing: border-box;
     width: 100%;
+    max-width: 100%;
+    padding-inline: 1.15rem;
+    gap: 1rem;
   }
 
   .registered-actions p {
     max-width: none;
+  }
+
+  .registered-gift-card {
+    padding: 2.05rem 1.35rem;
+  }
+
+  .registered-gift-card h2 {
+    font-size: clamp(2.45rem, 11vw, 3.35rem);
+    overflow-wrap: anywhere;
   }
 }

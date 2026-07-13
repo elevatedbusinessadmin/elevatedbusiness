@@ -7,19 +7,20 @@ const webinarBackup = document.querySelector('[data-webinar-backup]');
 const webinarPassword = 'profit';
 const webinarAccessKey = 'elevatedWebinarAccess';
 
-const buildWebinarUrl = (baseUrl, attendeeName) => {
+const buildWebinarUrl = (baseUrl, attendeeName, attendeeEmail) => {
   try {
     const url = new URL(baseUrl);
-    url.searchParams.set('name', attendeeName);
+    if (attendeeName) url.searchParams.set('name', attendeeName);
+    if (attendeeEmail) url.searchParams.set('userId', attendeeEmail);
     return url.toString();
   } catch (error) {
     return baseUrl;
   }
 };
 
-const showWebinarRoom = (attendeeName = '') => {
+const showWebinarRoom = (attendeeName = '', attendeeEmail = '') => {
   const baseUrl = webinarFrame?.dataset.roomSrc || '';
-  const roomUrl = buildWebinarUrl(baseUrl, attendeeName);
+  const roomUrl = buildWebinarUrl(baseUrl, attendeeName, attendeeEmail);
 
   if (webinarFrame && !webinarFrame.src) {
     webinarFrame.src = roomUrl;
@@ -37,7 +38,7 @@ const showWebinarRoom = (attendeeName = '') => {
 try {
   const savedAccess = JSON.parse(window.sessionStorage.getItem(webinarAccessKey) || 'null');
   if (savedAccess?.granted) {
-    showWebinarRoom(savedAccess.name || '');
+    showWebinarRoom(savedAccess.name || '', savedAccess.email || '');
   }
 } catch (error) {
   window.sessionStorage.removeItem(webinarAccessKey);
@@ -69,5 +70,5 @@ webinarForm?.addEventListener('submit', (event) => {
     enteredAt: new Date().toISOString()
   }));
 
-  showWebinarRoom(name);
+  showWebinarRoom(name, email);
 });

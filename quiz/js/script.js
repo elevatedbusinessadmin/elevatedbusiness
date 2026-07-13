@@ -290,39 +290,11 @@ const priorityResults = {
   ]]
 };
 
-const ctaResults = {
-  Visibility: ['What if your website helped more of the right people find you?', [
-    'A strategically built website can give your business a clear, credible home, strengthen how you are discovered and help potential clients quickly understand why your service is relevant to them.',
-    'And it does not have to sit online waiting to be found.',
-    'The scorecard you have just completed is one example of how a website can actively support business growth: creating useful content, attracting potential clients and turning attention into an ongoing relationship.',
-    'If your current online presence is making your business harder to discover than it should be, I can help you explore what a stronger website could do.'
-  ]],
-  Credibility: ['Does your website reflect the quality of the business you have built?', [
-    'A strong service can be undermined by an online presence that feels outdated, unclear or disconnected from the standard of the actual client experience.',
-    'Strategic website design is not simply about making a business look more polished. It is about helping potential clients understand your value, see evidence, answer key questions and build confidence before they ever contact you.',
-    'The scorecard you have just completed is itself an example of that thinking: your website can demonstrate expertise while creating a useful experience for the people you want to reach.',
-    'If your current website no longer represents the business you run today, I can help you change that.'
-  ]],
-  Profitability: ['What if your website did more than explain what you do?', [
-    'A strategically built website can guide potential clients towards the right next step, capture leads who are not ready to buy yet and reduce how much early explanation and reassurance depends on you personally.',
-    'You have just experienced one example.',
-    'This scorecard is not simply content on a page. It is a built-in lead generation journey designed to provide value, capture interest and continue the relationship beyond a single visit.',
-    'Your website could include functionality shaped around your own business, whether that is a quiz, assessment, lead magnet, enquiry journey, booking route or another useful interactive experience.',
-    'If you want a website that actively supports how your business generates and develops opportunities, I can help you build it.'
-  ]],
-  tie: ['Your website could work harder across the client journey', [
-    'Your results suggest more than one part of the journey deserves attention.',
-    'A strategically designed website can connect those pieces: helping the right people understand your business, building confidence in what you offer and guiding interested visitors towards an appropriate next step.',
-    'The scorecard you have just completed is one example of that approach. Rather than simply displaying information, it provides a useful experience, captures interest and creates a route for the relationship to continue.',
-    'If you want to explore what a more strategic website could do for your business, I can help.'
-  ]],
-  all: ['Build a website around the business you want to grow', [
-    'Your results show a relatively balanced profile across Visibility, Credibility and Profitability.',
-    'A strategically designed website can support all three: creating a clear home for your business, strengthening trust and giving potential clients purposeful ways to take the next step.',
-    'The scorecard you have just completed is one example of how website functionality can become part of a wider growth strategy rather than simply sitting online as a digital brochure.',
-    'If you want to explore what that could look like for your business, I can help.'
-  ]]
-};
+const ctaResult = ['Want to turn your scorecard insight into a clearer client journey?', [
+  'My free masterclass is the best next step if you want to understand how to move from unpredictable interest and inconsistent enquiries towards a steadier, more intentional route for people to find, trust and choose you.',
+  'Click below to see the next available date and reserve your place.',
+  'If you already know your website itself needs attention, you can still explore my website design service below—but for now, the masterclass is the step I would most recommend.'
+]];
 
 const landing = document.querySelector('[data-scorecard-landing]');
 const quizView = document.querySelector('[data-quiz-view]');
@@ -583,8 +555,7 @@ const showResults = () => {
   const priorities = categories.filter((category) => scores[category] === minimum);
   const priorityKey = priorities.join('+');
   const priority = priorityResults[priorityKey];
-  const ctaKey = priorities.length === 3 ? 'all' : priorities.length === 2 ? 'tie' : priorities[0];
-  const cta = ctaResults[ctaKey];
+  const cta = ctaResult;
   const bands = Object.fromEntries(categories.map((category) => [category, categoryBand(scores[category])]));
 
   document.querySelector('[data-results-greeting]').textContent = `${state.name}, your result is`;
@@ -596,7 +567,7 @@ const showResults = () => {
     .join('');
 
   document.querySelector('[data-priority-content]').innerHTML = `<h2>${priority[0]}</h2>${paragraphMarkup(priority[1])}`;
-  document.querySelector('[data-cta-content]').innerHTML = `<p class="cta-kicker">A more strategic website</p><h2>${cta[0]}</h2>${paragraphMarkup(cta[1])}`;
+  document.querySelector('[data-cta-content]').innerHTML = `<p class="cta-kicker">Your next step</p><h2>${cta[0]}</h2>${paragraphMarkup(cta[1])}`;
 
   updateMailerLiteResults({
     email: state.email,

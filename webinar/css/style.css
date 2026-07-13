@@ -175,6 +175,10 @@
   transform: translateY(1rem);
 }
 
+.webinar-register-card {
+  transform: translateY(1rem);
+}
+
 .webinar-gate-card::before {
   position: absolute;
   inset: 10px;
@@ -276,6 +280,18 @@
   line-height: 1.45;
 }
 
+.webinar-form-status:empty {
+  min-height: 0;
+}
+
+.webinar-form-status.is-sending {
+  color: #697174;
+}
+
+.webinar-form-status.is-error {
+  color: #8d3d31;
+}
+
 .webinar-room {
   padding: clamp(6rem, 9vw, 9rem) 0;
   background: linear-gradient(180deg, rgba(255, 255, 251, .55), rgba(241, 236, 226, .7));
@@ -353,7 +369,8 @@
     font-size: clamp(3.55rem, 12vw, 5.8rem);
   }
 
-  .webinar-placeholder-card {
+  .webinar-placeholder-card,
+  .webinar-register-card {
     max-width: 620px;
     transform: none;
   }

@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/webinar/css/style.css">
   <script src="/js/script.js" defer></script>
+  <script src="/webinar/js/script.js" defer></script>
 </head>
 <body class="webinar-page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -61,7 +62,7 @@
 
       <div class="webinar-shell">
         <div class="webinar-copy">
-          <p class="webinar-eyebrow"><span></span> Free live webinar</p>
+          <p class="webinar-eyebrow"><span></span> Free live masterclass</p>
           <h1>
             <span>From</span>
             <span>Rollercoaster</span>
@@ -70,7 +71,7 @@
           </h1>
           <p class="webinar-intro">Join Rebecca for a focused session on creating a steadier, clearer client journey — so your business is better able to attract interest, build trust and turn the right attention into meaningful next steps.</p>
           <p class="webinar-session-label">Next available session</p>
-          <div class="webinar-meta" aria-label="Webinar details">
+          <div class="webinar-meta" aria-label="Masterclass details">
             <div>
               <span>Date</span>
               <strong>Wednesday 15th July 2026</strong>
@@ -82,8 +83,23 @@
           </div>
         </div>
 
-        <aside class="webinar-gate-card webinar-placeholder-card">
+        <aside class="webinar-gate-card webinar-register-card">
           <div class="webinar-gate-sheen" aria-hidden="true"></div>
+          <p class="webinar-card-kicker">Save your seat</p>
+          <h2>Register for the free masterclass.</h2>
+          <p>Enter your details below and I&rsquo;ll email your joining details straight over.</p>
+
+          <form class="webinar-gate-form" data-masterclass-form novalidate>
+            <label for="masterclass-name">First name</label>
+            <input id="masterclass-name" name="name" type="text" autocomplete="given-name" required>
+
+            <label for="masterclass-email">Email address</label>
+            <input id="masterclass-email" name="email" type="email" autocomplete="email" required>
+
+            <button class="button button-primary" type="submit">Register now <span aria-hidden="true">→</span></button>
+            <p class="webinar-form-note">You&rsquo;ll be added to my masterclass list so I can send the joining details and relevant reminders.</p>
+            <p class="webinar-form-status" data-masterclass-status role="status" aria-live="polite"></p>
+          </form>
         </aside>
       </div>
     </section>

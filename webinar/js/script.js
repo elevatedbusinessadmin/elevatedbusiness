@@ -1,73 +1,55 @@
-const webinarForm = document.querySelector('[data-webinar-form]');
-const webinarStatus = document.querySelector('[data-webinar-status]');
-const webinarGate = document.querySelector('[data-webinar-gate]');
-const webinarRoom = document.querySelector('[data-webinar-room]');
-const webinarFrame = document.querySelector('[data-webinar-frame]');
-const webinarBackup = document.querySelector('[data-webinar-backup]');
-const webinarPassword = 'profit';
-const webinarAccessKey = 'elevatedWebinarAccess';
+const masterclassForm = document.querySelector('[data-masterclass-form]');
+const masterclassStatus = document.querySelector('[data-masterclass-status]');
 
-const buildWebinarUrl = (baseUrl, attendeeName) => {
-  try {
-    const url = new URL(baseUrl);
-    url.searchParams.set('name', attendeeName);
-    return url.toString();
-  } catch (error) {
-    return baseUrl;
-  }
-};
-
-const showWebinarRoom = (attendeeName = '') => {
-  const baseUrl = webinarFrame?.dataset.roomSrc || '';
-  const roomUrl = buildWebinarUrl(baseUrl, attendeeName);
-
-  if (webinarFrame && !webinarFrame.src) {
-    webinarFrame.src = roomUrl;
-  }
-
-  if (webinarBackup) {
-    webinarBackup.href = roomUrl;
-  }
-
-  webinarGate?.setAttribute('hidden', '');
-  webinarRoom?.removeAttribute('hidden');
-  webinarRoom?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-};
-
-try {
-  const savedAccess = JSON.parse(window.sessionStorage.getItem(webinarAccessKey) || 'null');
-  if (savedAccess?.granted) {
-    showWebinarRoom(savedAccess.name || '');
-  }
-} catch (error) {
-  window.sessionStorage.removeItem(webinarAccessKey);
-}
-
-webinarForm?.addEventListener('submit', (event) => {
+masterclassForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  if (!webinarForm.checkValidity()) {
-    webinarForm.reportValidity();
+  if (!masterclassForm.checkValidity()) {
+    masterclassForm.reportValidity();
     return;
   }
 
-  const formData = new FormData(webinarForm);
-  const name = String(formData.get('name') || '').trim();
-  const email = String(formData.get('email') || '').trim();
-  const password = String(formData.get('password') || '').trim();
+  const submitButton = masterclassForm.querySelector('button[type="submit"]');
+  const originalButtonContent = submitButton?.innerHTML || '';
+  const formData = new FormData(masterclassForm);
+  const payload = {
+    name: String(formData.get('name') || '').trim(),
+    email: String(formData.get('email') || '').trim()
+  };
 
-  if (password.toLowerCase() !== webinarPassword.toLowerCase()) {
-    webinarStatus.textContent = 'Tiny locked-door moment. Please check the password and try again.';
-    return;
+  masterclassStatus.textContent = 'Registering you now…';
+  masterclassStatus.className = 'webinar-form-status is-sending';
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'Registering…';
   }
 
-  webinarStatus.textContent = '';
-  window.sessionStorage.setItem(webinarAccessKey, JSON.stringify({
-    granted: true,
-    name,
-    email,
-    enteredAt: new Date().toISOString()
-  }));
+  try {
+    const response = await fetch('/api/masterclass-register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
 
-  showWebinarRoom(name);
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok || result.ok !== true) {
+      masterclassStatus.textContent = result.message || 'Registration is having a tiny wobble. Please try again.';
+      masterclassStatus.className = 'webinar-form-status is-error';
+      return;
+    }
+
+    window.location.assign('/webinar-registered/');
+  } catch (error) {
+    masterclassStatus.textContent = 'Registration could not be completed. Please check your connection and try again.';
+    masterclassStatus.className = 'webinar-form-status is-error';
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalButtonContent;
+    }
+  }
 });

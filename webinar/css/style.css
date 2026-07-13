@@ -58,6 +58,7 @@
   align-items: center;
   gap: clamp(2rem, 5vw, 4.5rem);
   grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  box-sizing: border-box;
 }
 
 .webinar-copy {
@@ -162,6 +163,7 @@
 
 .webinar-gate-card {
   position: relative;
+  box-sizing: border-box;
   overflow: hidden;
   min-height: clamp(360px, 42vw, 560px);
   padding: clamp(2rem, 4vw, 3.2rem);
@@ -239,6 +241,7 @@
   display: grid;
   margin-top: 1.7rem;
   gap: .72rem;
+  min-width: 0;
 }
 
 .webinar-gate-form label {
@@ -250,6 +253,7 @@
 }
 
 .webinar-gate-form input {
+  box-sizing: border-box;
   width: 100%;
   min-height: 52px;
   border: 1px solid rgba(30, 35, 39, .14);
@@ -269,6 +273,7 @@
 }
 
 .webinar-gate-form .button {
+  box-sizing: border-box;
   width: 100%;
   margin-top: .75rem;
 }
@@ -395,7 +400,14 @@
 
   .webinar-shell,
   .webinar-room-shell {
-    width: min(100% - 34px, 1180px);
+    width: calc(100% - 34px);
+    max-width: 1180px;
+  }
+
+  .webinar-gate-card {
+    width: 100%;
+    min-width: 0;
+    padding: 2.1rem 1.35rem;
   }
 
   .webinar-meta {
